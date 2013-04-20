@@ -1,0 +1,424 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Twenty Twelve v1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-02-25 10:39:45+0000\n"
+"Last-Translator: admin <bilinear.app@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: 404.php:17
+#@ twentytwelve
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: 404.php:21
+#@ twentytwelve
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: archive.php:29
+#, php-format
+#@ twentytwelve
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: archive.php:31
+#, php-format
+#@ twentytwelve
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: archive.php:31
+#@ twentytwelve
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: archive.php:33
+#, php-format
+#@ twentytwelve
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: archive.php:33
+#@ twentytwelve
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: archive.php:35
+#@ twentytwelve
+msgid "Archives"
+msgstr ""
+
+#: author.php:32
+#, php-format
+#@ twentytwelve
+msgid "Author Archives: %s"
+msgstr ""
+
+#: author.php:53
+#: content.php:53
+#, php-format
+#@ twentytwelve
+msgid "About %s"
+msgstr ""
+
+#: category.php:21
+#, php-format
+#@ twentytwelve
+msgid "Category Archives: %s"
+msgstr ""
+
+#: comments.php:31
+#, php-format
+#@ twentytwelve
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:42
+#@ twentytwelve
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:43
+#@ twentytwelve
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:44
+#@ twentytwelve
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:53
+#@ twentytwelve
+msgid "Comments are closed."
+msgstr ""
+
+#: content-aside.php:13
+#: content-aside.php:20
+#: content-image.php:17
+#: content-link.php:18
+#: content-quote.php:17
+#: content-status.php:15
+#: content.php:23
+#, php-format
+#@ twentytwelve
+msgid "Permalink to %s"
+msgstr ""
+
+#: content-aside.php:15
+#: content-image.php:13
+#: content-link.php:14
+#: content-quote.php:13
+#: content-status.php:21
+#: content.php:39
+#@ twentytwelve
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: content-aside.php:23
+#: content-image.php:23
+#: content-link.php:21
+#: content-quote.php:20
+#: content-status.php:27
+#: content.php:28
+#@ twentytwelve
+msgid "Leave a reply"
+msgstr ""
+
+#: content-aside.php:23
+#: content-image.php:23
+#: content-link.php:21
+#: content-quote.php:20
+#: content-status.php:27
+#: content.php:28
+#@ twentytwelve
+msgid "1 Reply"
+msgstr ""
+
+#: content-aside.php:23
+#: content-image.php:23
+#: content-link.php:21
+#: content-quote.php:20
+#: content-status.php:27
+#: content.php:28
+#@ twentytwelve
+msgid "% Replies"
+msgstr ""
+
+#: content-aside.php:26
+#: content-image.php:26
+#: content-link.php:24
+#: content-page.php:21
+#: content-quote.php:23
+#: content-status.php:30
+#: content.php:46
+#: functions.php:309
+#: image.php:37
+#@ twentytwelve
+msgid "Edit"
+msgstr ""
+
+#: content-link.php:12
+#@ twentytwelve
+msgid "Link"
+msgstr ""
+
+#: content-none.php:13
+#: index.php:49
+#: search.php:34
+#@ twentytwelve
+msgid "Nothing Found"
+msgstr ""
+
+#: content-none.php:17
+#: index.php:53
+#@ twentytwelve
+msgid "Apologies, but no results were found. Perhaps searching will help find a related post."
+msgstr ""
+
+#: content-page.php:18
+#: content.php:40
+#: image.php:92
+#@ twentytwelve
+msgid "Pages:"
+msgstr ""
+
+#: content.php:14
+#@ twentytwelve
+msgid "Featured post"
+msgstr ""
+
+#: content.php:57
+#, php-format
+#@ twentytwelve
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: footer.php:17
+#@ twentytwelve
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: footer.php:17
+#@ twentytwelve
+msgid "Semantic Personal Publishing Platform"
+msgstr ""
+
+#: footer.php:17
+#, php-format
+#@ twentytwelve
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: functions.php:64
+#@ twentytwelve
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:120
+#@ twentytwelve
+msgctxt "Open Sans font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:125
+#@ twentytwelve
+msgctxt "Open Sans font: add new subset (greek, cyrillic, vietnamese)"
+msgid "no-subset"
+msgstr ""
+
+#: functions.php:181
+#, php-format
+#@ twentytwelve
+msgid "Page %s"
+msgstr ""
+
+#: functions.php:206
+#@ twentytwelve
+msgid "Main Sidebar"
+msgstr ""
+
+#: functions.php:208
+#@ twentytwelve
+msgid "Appears on posts and pages except the optional Front Page template, which has its own widgets"
+msgstr ""
+
+#: functions.php:216
+#@ twentytwelve
+msgid "First Front Page Widget Area"
+msgstr ""
+
+#: functions.php:218
+#: functions.php:228
+#@ twentytwelve
+msgid "Appears when using the optional Front Page template with a page set as Static Front Page"
+msgstr ""
+
+#: functions.php:226
+#@ twentytwelve
+msgid "Second Front Page Widget Area"
+msgstr ""
+
+#: functions.php:250
+#: single.php:20
+#@ twentytwelve
+msgid "Post navigation"
+msgstr ""
+
+#: functions.php:251
+#@ twentytwelve
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: functions.php:252
+#@ twentytwelve
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: functions.php:277
+#@ twentytwelve
+msgid "Pingback:"
+msgstr ""
+
+#: functions.php:277
+#@ twentytwelve
+msgid "(Edit)"
+msgstr ""
+
+#: functions.php:292
+#@ twentytwelve
+msgid "Post author"
+msgstr ""
+
+#. translators: 1: date, 2: time
+#: functions.php:298
+#, php-format
+#@ twentytwelve
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: functions.php:304
+#@ twentytwelve
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: functions.php:313
+#@ twentytwelve
+msgid "Reply"
+msgstr ""
+
+#: functions.php:332
+#: functions.php:335
+#@ twentytwelve
+msgid ", "
+msgstr ""
+
+#: functions.php:346
+#, php-format
+#@ twentytwelve
+msgid "View all posts by %s"
+msgstr ""
+
+#: functions.php:352
+#, php-format
+#@ twentytwelve
+msgid "This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: functions.php:354
+#, php-format
+#@ twentytwelve
+msgid "This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: functions.php:356
+#, php-format
+#@ twentytwelve
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: header.php:43
+#@ twentytwelve
+msgid "Menu"
+msgstr ""
+
+#: header.php:44
+#@ twentytwelve
+msgid "Skip to content"
+msgstr ""
+
+#: image.php:26
+#, php-format
+#@ twentytwelve
+msgid "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</a>."
+msgstr ""
+
+#: image.php:41
+#@ twentytwelve
+msgid "&larr; Previous"
+msgstr ""
+
+#: image.php:42
+#@ twentytwelve
+msgid "Next &rarr;"
+msgstr ""
+
+#: index.php:38
+#@ twentytwelve
+msgid "No posts to display"
+msgstr ""
+
+#: index.php:42
+#, php-format
+#@ twentytwelve
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: search.php:18
+#, php-format
+#@ twentytwelve
+msgid "Search Results for: %s"
+msgstr ""
+
+#: search.php:38
+#@ twentytwelve
+msgid "Sorry, but nothing matched your search criteria. Please try again with some different keywords."
+msgstr ""
+
+#: single.php:21
+#@ twentytwelve
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr ""
+
+#: single.php:22
+#@ twentytwelve
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr ""
+
+#: tag.php:21
+#, php-format
+#@ twentytwelve
+msgid "Tag Archives: %s"
+msgstr ""
+

@@ -1,0 +1,23 @@
+/*----------------------------------------------------------------------------*/
+/*                    OVERRIDES                                               */
+/*-----------------------------------------------------------------------------*/
+.site-header{
+    background: #fece2f url(images/ui-bg_gloss-wave_60_fece2f_500x100.png) left top repeat-x; 
+}
+
+.site{
+  background-color:  #feeebd;
+}
+
+/*----------------------------------------------------------------------------*/
+/*                  LEADERS BUTTONS( 32 x 46 )  
+/*-----------------------------------------------------------------------------*/
+.leaders-prev span {
+    background: url('images/previous.png') no-repeat;;
+}
+
+.leaders-next span {
+    background: url('images/next.png') no-repeat;;
+}
+
+

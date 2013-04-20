@@ -1,0 +1,352 @@
+
+
+
+body .site{
+    max-width: 1040px;
+    max-width: 74.285714285rem;
+    padding: 0;
+    margin-top:0;
+}
+
+div#main.wrapper{
+    padding:14px 40px 0 40px;
+    padding:1rem 2.857142857rem 0 2.857142857rem;
+}
+
+header.site-header{
+    padding-top:0;
+    padding-bottom:5px;
+    padding-bottom:0.357143rem;
+    
+}
+
+header.site-header hgroup{
+    max-width: 960px;
+    max-width: 68.571428571rem;
+    padding:24px 40px 0 40px;
+    padding:1.714285714rem 2.857142857rem 0 2.857142857rem;
+}
+
+
+
+
+
+header.item-right h1{
+    margin:0 0 0 135px;
+    margin:0 0 0 9.642857143rem;
+    clear: none;
+/*    border:1px solid black;*/
+}
+div.item-right{
+/*    border:1px solid black;*/
+    margin:0 0 0 135px;
+    margin:0 0 0 9.642857143;
+}
+
+img.floatleft , div.floatleft {
+    border: 0 none;
+    float: left;
+}
+
+.site-content article {
+    min-height: 100px;
+    min-height: 7.142857rem;
+}
+
+/*
+* elemento footer
+*/
+footer[role="contentinfo"]{
+/*    position: fixed;
+    bottom:0;
+    width: 1040px;
+    width: 74.285714285rem;*/
+    
+    
+    margin: 0 auto;
+    max-width: 1040px;
+    max-width: 74.285714285rem;
+    padding-bottom: 0;
+}
+
+footer div.batraz-info{
+    min-height: 56px;
+    min-height: 4rem;
+    padding:14px;
+    padding:1rem;
+}
+
+footer div.site-info{
+    min-height: 28px;
+    min-height: 2.0rem;
+    padding:7px;
+    padding:.5rem
+
+}
+
+footer div.site-info p.copyright{
+    float:left;
+}
+
+footer div.site-info p.annotation{
+    float:right;
+}
+
+/* articoli */
+.site-content article{
+   /* padding: 14px; */
+}
+
+/* elementi widgets */
+.widget-title{
+    line-height: 36px;
+    line-height: 2.571428571428571rem;
+    padding-left:14px;
+    padding-left:1.0rem;
+}
+
+.widget-area .widget h3 {
+    margin-bottom: 0;
+}
+
+/* liste su widgets laterali */
+.widget ul{
+    padding-top:14px;
+    padding-bottom:14px;
+    padding-left:14px;
+}
+
+
+
+.widget-area .widget li { 
+    padding: 8px 0 8px 28px;
+    padding: 0.5714285714rem 0 0.5714285714rem 2rem;
+    text-decoration: none;
+}
+
+.widget-area .widget li a { 
+    text-decoration: none;
+}
+
+.template-front-page .widget-area .widget li{
+    
+}
+
+/* widgets in footer */
+.template-front-page.two-sidebars .batraz-info .widget_search,
+.batraz-info .widget_search{
+    float:right;
+}
+
+.batraz-info .widget_search input[type=text]{
+    border: 0 none;
+    margin: 0;
+    padding: 5px 10px;
+    width: 225px;
+    float: left;
+}
+
+.batraz-info .widget_search input[type=submit]{
+    border: 0 none;
+}
+
+
+.entry-meta .taxonomies-article{
+    margin-right: 14px;
+    margin-right: 1rem;
+    float:right;
+}
+
+.entry-meta{
+    overflow: hidden;
+    width: 100%;
+}
+
+.entry-meta .taxonomies-article .taxonomy-article span{
+  font-weight: bold;
+    
+}
+
+.entry-meta .taxonomies-article .taxonomy-article a{
+  font-weight: bolder;
+  color:red;
+  text-decoration: none;
+    
+}
+
+
+/*---------------------------------------------------------------------------
+        SLIDE CONTENT LEADERS    
+-----------------------------------------------------------------------------*/
+.header-leaders{
+    min-height: 35px;
+    min-height: 2.5rem;
+    line-height: 35px;
+    line-height: 2.5rem;
+    
+    margin-top:21px;
+    margin-top:1.5rem;
+    
+    padding-left: 14px;
+    padding-left: 1rem;
+    font-style: italic;
+    width:96%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leaders-list{
+    margin-bottom: 14px !important;
+}
+
+.content-leaders{
+    position: relative;
+    margin:0 10px;
+    margin :0 0.714285714rem;
+    max-width:99%; 
+    height:170px;
+    height: 12.14285714rem;
+    overflow:hidden;
+}
+
+.leaders-nav {
+    position: absolute;
+    height: 100%;
+    z-index: 8040;
+}
+
+.leaders-nav span {
+     position: absolute;
+     width: 32px;
+     height: 46px;
+     margin-top: -23px;
+     z-index: 8040;
+     top: 50%;
+}
+
+.leaders-prev {
+	left: 0;
+}
+
+.leaders-next {
+	right: 32px;
+}
+
+
+
+
+/*.leaders-prev span {
+     position: absolute;
+     background: url('images/previous-2.png') no-repeat;
+     width: 54px;
+     height: 54px;
+     margin-top: -27px;
+     z-index: 8040;
+     top: 50%;
+}
+
+.leaders-next span {
+     position: absolute;
+     background: url('images/next-2.png') no-repeat;
+     width: 54px;
+     height: 54px;
+     margin-top: -27px;
+     z-index: 8040;
+     top: 50%;
+}*/
+
+
+
+.content-leaders .content-leaders-wrapper{
+    padding:10px 0 10px 0;
+    padding :0.714285714rem 0 0.714285714rem  0;
+    height:148px;
+    overflow:hidden;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.content-leaders p{
+    display: inline-block;
+    width:140px;
+    width:10rem;
+    height:130px;
+    height: 9.285714rem;
+/*    float:left;*/
+    margin:0 20px;
+    margin:0 1.42857rem;
+}
+
+/*.content-leaders a{
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin:auto;
+}*/
+
+/*---------------------------------------------------------------------------
+        FLICKR
+-----------------------------------------------------------------------------*/
+.site-content-full .entry-header .entry-title{
+    display:none;
+}
+.flickr-sets{
+    
+    height: 140px;
+    max-width:90%;
+    padding-top:10px;
+    overflow: auto;
+    margin:14px auto 28px auto;
+   
+}
+
+.flickr-sets .flickr-sets-wrapper{
+    overflow: hidden;
+}
+
+.flickr-sets .flickr-sets-wrapper .Sets{
+    float:left;
+    margin:0 20px;
+}
+
+.flickr-sets .flickr-sets-wrapper .Sets .SetCase{
+    padding: 7px 0 0 7px;
+    width: 91px;
+    height: 95px;
+    background: url(../images/set_case.gif) no-repeat;
+}
+
+.flickr-photos {
+    max-width: 90%;
+    max-height: 140px;
+    margin:14px auto 28px auto;
+    padding:10px;
+    overflow: auto;
+}
+
+.flickr-photos .flickr-photos-wrapper{
+    overflow: hidden;
+}
+
+/* IMAGES STYLE */
+/*.flickr-photos-wrapper ul{width:100%;height:100%}*/
+.flickr-photos .imageContainer{
+    float:left;
+    position:relative;
+/*    display: inline;*/
+/*    width:200px;
+    height:200px;*/
+    margin: 10px 10px 0 0;
+    padding:3px;
+    border: 1px solid #666;
+}
+.flickr-photos .imageContainer a img{
+/*    position:absolute;
+    clip: rect(0px 200px 200px 0px);
+    min-height: 200px;
+    min-width: 200px;*/
+}
+
+.flickr-photos .imageContainer span{
+    display: none;
+}

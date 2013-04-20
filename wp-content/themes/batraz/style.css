@@ -1,0 +1,17 @@
+/*
+Theme Name:     Twentytwelve Batraz
+Theme URI:      http://example.com/
+Description:    Child theme for twentytwelve theme 
+Author:         Stu minchione
+Author URI:     http://example.com/about/
+Template:       twentytwelve
+Version:        0.1.0
+*/
+
+@import url("../twentytwelve/style.css");
+@import url("css/layout.css");
+@import url("css/navigation.css");
+
+
+
+

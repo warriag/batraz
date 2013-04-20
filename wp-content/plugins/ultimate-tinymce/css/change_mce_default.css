@@ -1,0 +1,14 @@
+/* Default CSS for Ultimate TinyMCE */
+/* Created by Josh Lobe */
+/* Do not add anything to this file */
+
+/* Separator */
+.wp_themeSkin .mceSeparator {
+	display: block !important;
+	width: 10px !important;
+}
+
+/* Opacity for inactive icons */
+.wp_themeSkin .mceButtonDisabled .mceIcon { 
+opacity: 0.4 !important;
+}

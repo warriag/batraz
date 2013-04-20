@@ -1,0 +1,128 @@
+/*----------------------------------------------------
+   OVERRIDE DISABLED BUTTONS MCE
+-------------------------------------------------------*/
+.wp_themeSkin .mceButtonDisabled .mceIcon {
+	opacity: 0.4 !important;
+	filter: alpha(opacity=40) !important;
+}
+
+.marker{
+    padding: 7px 14px;
+    padding: 0.5rem 1.0rem;
+    border:1px solid #CCC;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 0.3571rem;
+    -moz-border-radius: 0.3571rem;
+    -o-border-radius: 0.3571rem;
+    border-radius: 0.3571rem;
+    
+}
+
+#progressbar {
+    position: fixed;
+    top: 50%;
+    left: 35%;
+    margin-left: -50px; 
+    margin-top: -50px;  
+    text-align:center;
+    z-index:1234;
+/*    overflow: auto;*/
+    width: 624px;  
+/*    height:128px; */
+}
+
+#btz-popup-post, #btz-popup-panels{
+    line-height: 20px;
+    line-height: 1.4285rem;
+    line-height: 1.428rem;
+    font-size: 12px;
+    font-size: 0.857rem;
+}
+
+#btz-popup-post #post-options, #btz-popup-panels #post-options-panels {
+    
+    padding: 10px 0 14px;
+    padding: 0.714rem 0 1rem;
+    border-bottom: 1px solid #dfdfdf;
+    margin: 0 6px 14px;
+    margin: 0 0.428rem 1rem;
+}
+
+#btz-popup-post #post-options label span{
+    display: inline-block;
+    min-width: 80px;
+    min-width: 5.7142rem;
+    text-align: right;
+    padding-right: 5px;
+    padding-right: 0.357rem;
+   
+}
+
+#btz-popup-post #post-options label span.post-values{
+   background-color: #fff; 
+   text-align: left; 
+   border-radius: 3px;
+   border: solid 1px #c0c0c0;
+   padding:0 7px 0 7px;
+   padding:0 0.5rem 0 0.5rem;
+   
+}
+
+#btz-popup-post .query-results {
+    border: 1px #dfdfdf solid;
+    margin: 0 5px 5px;
+    margin: 0 0.357rem 0.357rem;
+    background: #fff;
+    height: 185px;
+    height: 13.2143rem;
+    overflow: auto;
+    position: relative;
+}
+
+#btz-popup-post li{
+    clear: both;
+    margin-bottom: 0;
+    border-bottom: 1px solid #f1f1f1;
+    color: #333;
+    padding: 4px 6px;
+    cursor: pointer;
+    position: relative;
+}
+
+.alternate {
+    background-color: #fcfcfc;
+}
+
+#btz-popup-post li.selected {
+    background: #ddd;
+    color: #333;
+}
+
+#btz-popup-post #btz-pagination li{
+    display:inline-block;
+    margin-right: 4px;
+    border-radius: 3px;
+    border: solid 1px #c0c0c0;
+
+}
+
+#btz-popup-post #btz-pagination li.pageLoaded{
+    background: #ddd;
+    color: #333;
+}
+
+#btz-popup-post .btz-propsc {
+width: auto;
+padding: 3px 0 0;
+margin: 0 0 0 87px;
+font-size: 11px;
+font-size: 0.7857rem;
+}
+
+#btz-popup-post .btz-propsc label, #btz-popup-panels .btz-propsc-panels label {
+    display: block;
+}
+

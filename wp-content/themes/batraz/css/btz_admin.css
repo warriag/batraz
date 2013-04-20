@@ -1,0 +1,14 @@
+input.url-text{
+    width:500px;
+    width:35.71428571428571rem;
+}
+
+input.long-text{
+    width:300px;
+    width:21.42857142857143rem;
+}
+
+.icon32 {
+    background: url('../images/logo-32.png') no-repeat;
+}
+
