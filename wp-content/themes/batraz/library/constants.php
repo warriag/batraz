@@ -24,3 +24,9 @@ define( 'OPTION_COLOR_STYLE' , 'btz_color_style');
 define( 'OPTION_COLOR_STYLE_SINGLE' , 'btz_color_style_single');
 define( 'THEME_BLACK_TIE' , 'Black Tie');
 define( 'THEME_UI_DARKNESS' , 'UI Darkness');
+
+define( 'OPTION_LEADERS_PPP' , 'btz_leaders_ppp');
+define( 'OPTION_LEADERS_SPEED' , 'btz_leaders_speed');
+
+
+define( 'OPTION_TAXONOMIES_HIDE' , 'btz_taxonomies_hide');

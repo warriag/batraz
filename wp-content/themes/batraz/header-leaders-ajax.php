@@ -14,7 +14,8 @@
               <script>
                 jQuery(document).ready(function(){
                      jQuery("#slide-leaders").loadLeaders({ slug : '<?php echo $leadarr['slug']; ?>',
-                                                            ppp : 3,
+                                                            ppp : <?php echo get_option(OPTION_LEADERS_PPP); ?>,
+                                                            speed : <?php echo get_option(OPTION_LEADERS_SPEED); ?>,
                                                             debug : <?php echo WP_DEBUG ?>
                                             });
                 });

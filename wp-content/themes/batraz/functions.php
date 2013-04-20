@@ -72,8 +72,10 @@ function adding_elements_options_func($optObj) {
             'usemedia' => '/js/media.js', 'class' => 'url-text'),
         array('name' => OPTION_COPYRIGHT, 'type' => 'text', 'label' => 'Copyright', 'class' => 'long-text'),
         array('name' => OPTION_ANNOTATION, 'type' => 'text', 'label' => 'Annotazione', 'class' => 'long-text'),
+       
         array('name' => OPTION_COLOR_STYLE, 'type' => 'select', 'values' => $styles,
             'label' => 'Color-Style Tema', 'class' => 'select-color-style'),
+       
     );
 
     $types = get_post_types(array('_builtin' => false, 'public' => true), 'names');
@@ -86,6 +88,10 @@ function adding_elements_options_func($optObj) {
             'label' => $label, 'class' => 'select-color-style');
     }
 
+    $elements[] =  array('name' => OPTION_LEADERS_PPP, 'type' => 'text', 'label' => 'Numero leaders');
+    $elements[] =  array('name' => OPTION_LEADERS_SPEED, 'type' => 'text', 'label' => 'Speed leaders');
+    $elements[] =  array('name' => OPTION_TAXONOMIES_HIDE, 'type' => 'checkbox', 'label' => 'Nascondi tassonomie sul post');
+    
     return $elements;
 }
 
