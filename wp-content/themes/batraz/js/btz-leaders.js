@@ -2,13 +2,14 @@
 (function($){
     $.fn.loadLeaders = function(options){
         defaults = {
-            'slug' : null,
+            slug : null,
             tpl: {
                     next     : '<a title="Successivo" class="leaders-nav leaders-next" href="javascript:;"><span></span></a>',
                     prev     : '<a title="Precedente" class="leaders-nav leaders-prev" href="javascript:;"><span></span></a>'
             },
-            'ppp' : 5,        
-            'debug' : false       
+            ppp : 5, 
+            speed : 1,
+            debug : false       
         }
         options = $.extend(defaults, options);
         
@@ -24,12 +25,13 @@
         }
         
         var links = new Array(),
-        ppp,
+        ppp, speed
         lenLinks = 0,
         start = 0;
 
 
         ppp = (isNaN(options.ppp) || options.ppp <= 0 || options.ppp > 5) ? 5 : options.ppp;
+        speed = (isNaN(options.speed) || options.speed <= 0 || options.ppp > ppp) ? 1 : options.speed;
         
         return this.each(function(){
            
@@ -37,26 +39,28 @@
             $(this).prepend(options.tpl.prev);
             
             $(".leaders-next", this).live('click', function(){
-                start += ppp;
+               
+                start += speed;
                 start = (start % lenLinks);
 
-                wrapper.fadeOut(200);
+               
                 wrapper.empty();
                 fillContainer();
-                wrapper.fadeIn();
+                
             });
              
             $(".leaders-prev", this).live('click', function(){
-                start -= ppp;
-                 while(start < 0){
+
+                start -= speed;
+                while(start < 0){
                     start += lenLinks;
                 }
                 start = (start % lenLinks);
 
-                wrapper.fadeOut(200);
+               
                 wrapper.empty();
                 fillContainer();
-                wrapper.fadeIn();
+                
             });
            
             var counter = 0;
