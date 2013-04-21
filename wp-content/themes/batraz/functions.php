@@ -88,9 +88,12 @@ function adding_elements_options_func($optObj) {
             'label' => $label, 'class' => 'select-color-style');
     }
 
-    $elements[] =  array('name' => OPTION_LEADERS_PPP, 'type' => 'text', 'label' => 'Numero leaders');
-    $elements[] =  array('name' => OPTION_LEADERS_SPEED, 'type' => 'text', 'label' => 'Speed leaders');
-    $elements[] =  array('name' => OPTION_TAXONOMIES_HIDE, 'type' => 'checkbox', 'label' => 'Nascondi tassonomie sul post');
+    // tab leaders
+    $elements[] =  array('name' => OPTION_LEADERS_PPP, 'type' => 'text', 'label' => 'Numero leaders', 'tab' => 'Opzioni Leaders');
+    $elements[] =  array('name' => OPTION_LEADERS_SPEED, 'type' => 'text', 'label' => 'Speed leaders', 'tab' => 'Opzioni Leaders');
+    
+    // tab taxonomies
+    $elements[] =  array('name' => OPTION_TAXONOMIES_HIDE, 'type' => 'checkbox', 'label' => 'Nascondi tassonomie sul post', 'tab' => 'Opzioni Tassonomie');
     
     return $elements;
 }

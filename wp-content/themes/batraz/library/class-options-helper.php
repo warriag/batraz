@@ -10,6 +10,7 @@ class BTZ_Option_element {
     public $usemedia;
     public $class ="regular-text";
     public $values = array();
+    public $tab =  BTZ_Options_Helper::DEFAULT_TAB;
     
     function __construct($parameters = array()) {
         foreach($parameters as $key => $value) {
@@ -37,6 +38,10 @@ class BTZ_Options_Helper {
     protected  $option_name_slug = 'batraz';
     protected  $option_menu_slug;
     protected  $option_group;
+    protected  $option_tab = array( self::DEFAULT_TAB);
+    
+    const TABS_ID = 'btz-options-tabs';
+    const DEFAULT_TAB = 'Generale';
     
      public function __construct($option_slug = '') {
         
@@ -74,8 +79,16 @@ class BTZ_Options_Helper {
     
     function add_elements($elements){
         foreach($elements as $element){
+            if(isset($element['tab']) && !in_array($element['tab'], $this->option_tab)){
+                $this->option_tab[] = $element['tab'];
+            }
             $this->add(new BTZ_Option_element($element));
+            error_log(print_r($this->option_tab, true));
+            
         }
+
+           
+       
     }
     
     public function load_admin_script($hook){
@@ -122,6 +135,7 @@ class BTZ_Options_Helper {
   
     
     public function add($element){
+        
         $this->elements[] = &$element;
     }
     
@@ -162,41 +176,96 @@ class BTZ_Options_Helper {
                 ?>
                 </form>
             </div>
-
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    jQuery( "#<?php echo self::TABS_ID; ?>" ).tabs();
+                });
+            </script>
         <?php
     }
     
     public function create_table(){
         ?>
-        <table class="form-table">
-            <tbody>
-        <?php foreach ($this->elements as $element) : ?>
-             <tr valign="top">
-               <th scope="row"><label for="<?php echo $element->name ?>" ><?php echo $element->label ?></label></th>
-               <?php if($element->type == 'checkbox') : ?>
-                    <td><input type="checkbox" name="<?php echo $element->name ?>" value="1" <?php checked('1', get_option($element->name)); ?> /></td>
-               <?php elseif ($element->type == 'select') : ?>
-                     <td><select class="<?php echo $element->class; ?>" id="<?php echo $element->name; ?>" name="<?php echo $element->name ?>" size="1">
-                    <?php foreach($element->values as $key => $option) : ?>
-                             <option value="<?php echo $option ?>" <?php echo (get_option($element->name) == $option ? 'selected' : ''); ?>  ><?php echo self::get_name_from_dir($option) ?></option>
-                    <?php endforeach;  ?>
-                     </select></td>     
-               <?php else : ?>     
-                    <td><input type="text" name="<?php echo $element->name ?>" value="<?php echo get_option($element->name); ?>" class="<?php echo $element->class; ?>" />
-                        <?php if(!empty($element->usemedia)) : ?>
-                             <a href="#" id="<?php echo $element->name; ?>" class="btz-media-load button button-primary">Scegli immagine</a>
-                        <?php endif; ?>
-                    </td>
-               <?php endif; ?>     
-             </tr>
-        <?php endforeach;  ?>
         
-           </tbody>
-        </table>   
+                
+                <?php ob_start(); ?>
+                <div id="<?php echo self::TABS_ID; ?>">
+                    <ul>
+                        <?php foreach ($this->option_tab as $tab) : ?>
+                        <li><a href="#<?php echo self::TABS_ID . sanitize_title_with_dashes($tab); ?>" ><?php echo $tab; ?></a></li>
+                        <?php endforeach;  ?>
+                    </ul>
+                <?php foreach ($this->option_tab as $tab) : ?>
+                    <div id="<?php echo self::TABS_ID . sanitize_title_with_dashes($tab); ?>">
+                        <table class="form-table">
+                            <tbody>
+                                
+                                <?php foreach ($this->elements as $element) : ?>
+                                     <?php error_log(print_r($element, true)); ?>
+                                     <?php if ($element->tab == $tab) : ?>
+                                        <tr valign="top">
+                                              <th scope="row"><label for="<?php echo $element->name ?>" ><?php echo $element->label ?></label></th>
+                                              <td><?php  $this->create_input_element($element); ?></td>
+                                        </tr>
+                                     <?php endif; ?>
+                                <?php endforeach;  ?>
+                                 
+                             </tbody>
+                        </table>  
+                    </div>        
+                <?php endforeach;  ?>
+                </div>    
 
         <?php
         
     }
+    
+    protected function create_input_element($element){
+        switch($element->type){
+            case 'checkbox':
+                $this->create_checkbox_element($element);
+                break;
+            
+            case 'select':
+                $this->create_select_element($element);
+                break;
+            
+            case 'text':    
+                $this->create_text_element($element);
+                break;
+            
+            default :
+                $this->create_text_element($element);
+                break;
+        }
+    }
+    
+    protected function create_text_element($element){
+        ?>
+            <input type="text" name="<?php echo $element->name ?>" value="<?php echo get_option($element->name); ?>" class="<?php echo $element->class; ?>" />
+            <?php if(!empty($element->usemedia)) : ?>
+                 <a href="#" id="<?php echo $element->name; ?>" class="btz-media-load button button-primary">Scegli immagine</a>
+            <?php endif; ?>
+        <?php
+    }
+    
+    protected function create_checkbox_element($element){
+        ?>
+            <input type="checkbox" name="<?php echo $element->name ?>" value="1" <?php checked('1', get_option($element->name)); ?> />
+        <?php
+    }
+    
+    protected function create_select_element($element){
+        ?>
+            <select class="<?php echo $element->class; ?>" id="<?php echo $element->name; ?>" name="<?php echo $element->name ?>" size="1">
+                <?php foreach($element->values as $key => $option) : ?>
+                         <option value="<?php echo $option ?>" <?php echo (get_option($element->name) == $option ? 'selected' : ''); ?> ><?php echo self::get_name_from_dir($option) ?></option>
+                <?php endforeach;  ?>
+            </select>
+        <?php
+    }
+    
+    
     
     function add_home_link($items, $args) {
       
