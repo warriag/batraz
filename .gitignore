@@ -1,2 +1,4 @@
 .htaccess
 *.log
+*.sql
+keys-flickr.txt
