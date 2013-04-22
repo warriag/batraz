@@ -1,4 +1,4 @@
-#jwl-donate-box{
+#jwl-dev-credit-box{
 	display:none;
 	background:url(../img/overlay.png);
 	position:absolute;
@@ -8,14 +8,14 @@
 	z-index:999;
 }
 
-#jwl-donate-box-content{
+#jwl-dev-credit-box-content{
 	position:fixed;
 	left:50%;
 	top:50%;
-	width:400px;
-	height:300px;
+	width:600px;
+	height:400px;
 	padding:10px 25px;
-	margin-left:-225px;
+	margin-left:-250px;
 	margin-top:-160px;
 	background:white;
 	border:2px solid #0099ff;
@@ -25,18 +25,18 @@
 	border-radius: 6px;
 }
 
-#jwl-donate-box img.jwl-close{
+#jwl-dev-credit-box img.jwl-close{
 	position:absolute;
 	right:10px; top:10px;
 	cursor:pointer;
 }
-#jwl-donate-box a.jwl-dontshow{
+#jwl-dev-credit-box a.jwl-dontshow{
 	font-size:10px;
 	position:absolute;
 	right:10px;
 	bottom:10px;
+	cursor:pointer;
 }
 
-#jwl-donate-box p{ margin:5px 0 15px; }
-#jwl-donate-box form{ display:block; margin:10px 0; text-align:center; }
-#jwl-donate-box .twitter-share-button{ text-align:center; }
+#jwl-dev-credit-box p{ margin:5px 0 15px; }
+#jwl-dev-credit-box form{ display:block; margin:10px 0; }
