@@ -5,6 +5,7 @@
  */
 
 define('BTZ_OBJ_OPTION', 'btz_obj_options');
+define('BTZ_THUMB_INDICATOR', 'wpcf-btzthumb');
 
 
 define('BATRAZ_SETTING_GROUP', 'batraz-settings-group');

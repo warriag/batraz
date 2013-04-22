@@ -454,9 +454,9 @@ class BTZ_Options_Helper {
     public static function get_thumbnail_indicator($class = ''){
         global $post;
         $block = '';
-        $img = get_post_meta($post->ID, 'btzthumb', true); 
+        $img = get_post_meta($post->ID, BTZ_THUMB_INDICATOR, true); 
         if(!empty($img) && self::is_image($img)){
-            $block = '<img width="115" height="115" src="' . $img . '" class="attachment-115x115 wp-post-image ' . $class . '" alt="' . 'btzthumb" />';
+            $block = '<img width="115" height="115" src="' . $img . '" class="attachment-115x115 wp-post-image ' . $class . '" alt="' . BTZ_THUMB_INDICATOR . '" />';
         }else{
   
             $block = get_the_post_thumbnail( $post->ID , array(115,115, 'class' => ' ' . $class));
