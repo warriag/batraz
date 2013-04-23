@@ -19,6 +19,9 @@ if( !class_exists( 'Btz_Popup' ) )
 if( !class_exists( 'Btz_Shortcodes' ) )
 	require_once( 'class-btz-shortcodes.php' );
 
+if( !class_exists( 'Btz_Cross_Post' ) )
+	require_once( 'class-btz-cross-post.php' );
+
 // --------------------
 // --  PLUGIN HOOKS  --
 // --------------------
@@ -83,5 +86,6 @@ function other_args_default($args){
 
  new Btz_Popup();
  new Btz_Shortcodes();
+ new BTZ_Cross_Post();
 
 ?>

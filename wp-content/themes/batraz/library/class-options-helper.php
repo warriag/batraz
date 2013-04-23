@@ -83,8 +83,7 @@ class BTZ_Options_Helper {
                 $this->option_tab[] = $element['tab'];
             }
             $this->add(new BTZ_Option_element($element));
-            error_log(print_r($this->option_tab, true));
-            
+                       
         }
 
            
@@ -201,7 +200,6 @@ class BTZ_Options_Helper {
                             <tbody>
                                 
                                 <?php foreach ($this->elements as $element) : ?>
-                                     <?php error_log(print_r($element, true)); ?>
                                      <?php if ($element->tab == $tab) : ?>
                                         <tr valign="top">
                                               <th scope="row"><label for="<?php echo $element->name ?>" ><?php echo $element->label ?></label></th>
