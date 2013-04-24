@@ -56,7 +56,7 @@ if (!class_exists('Btz_Queries')) {
 
             $types = get_post_types(array('_builtin' => false, 'public' => true), 'names');
             $types[] = 'post';
-            $types[] = 'page';
+            //$types[] = 'page';
 
             foreach ($types as $t) {
                 $array_types[] = "'" . $t . "'";
@@ -107,10 +107,9 @@ if (!class_exists('Btz_Queries')) {
                 return null;
             }
 
-
-
+            
             $where_status = " ( p.post_status = 'publish' OR p.post_status = 'private' ) ";
-            $where = " WHERE p.post_title <> '' AND " . $where_status . " AND p.ID =" .$postId;
+            $where = " WHERE p.post_title <> '' AND p.post_type  " . $where_status . " AND p.ID =" .$postId;
             
 
 
@@ -143,11 +142,19 @@ if (!class_exists('Btz_Queries')) {
                 return null;
             }
 
+            $types = get_post_types(array('_builtin' => false, 'public' => true), 'names');
+            $types[] = 'post';
 
+            foreach ($types as $t) {
+                $array_types[] = "'" . $t . "'";
+            }
+            
+           
+            
             $where_status = " ( p.post_status = 'publish' OR p.post_status = 'private' ) ";
-            
-            $where = " WHERE p.post_title <> '' AND {$where_status}  AND p.ID IN ($listPostId)";
-            
+            $in_type = '( ' . implode(', ', $array_types) . ' )';
+            $in_post = '( ' . $listPostId . ' )';
+            $where = " WHERE p.post_title <> '' AND " . $where_status . "  AND post_type IN " . $in_type . " AND p.ID IN " . $in_post;
             $query = "SELECT p.ID, p.post_title FROM wp_posts p " . $where;
             
 

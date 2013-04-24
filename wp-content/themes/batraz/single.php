@@ -27,7 +27,7 @@ get_header(); ?>
                                 
                                 
                                 
-                                
+                                <?php get_template_part( 'content', 'cross' ); ?>
                                 
                                 
 				<?php comments_template( '', true ); ?>

@@ -10,8 +10,9 @@ require_once(STYLESHEETPATH . '/library/constants.php');
 require_once(STYLESHEETPATH . '/library/class-options-helper.php');
 require_once(STYLESHEETPATH . '/library/class-leaders-helper.php');
 
-include(STYLESHEETPATH . '/functions-overrides.php');
+include(STYLESHEETPATH . '/functions-plugged.php');
 include(STYLESHEETPATH . '/functions-leaders.php');
+include(STYLESHEETPATH . '/functions-cross.php');
 include(STYLESHEETPATH . '/scripts.php');
 
 
