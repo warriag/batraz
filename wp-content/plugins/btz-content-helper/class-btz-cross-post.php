@@ -4,6 +4,7 @@ class BTZ_Cross_Post {
 
     const CROSS_POST_META_FIELD_KEY = 'btz_cross_post_meta_field_key';
     const CROSS_POST_NAME_FIELD = 'btz_cross_post_id';
+    const CROSS_POST_SEARCH_FIELD = 'btz_cross_post_search';
     const META_FIELD_CROSS_POST_COLUMN = 'btz_cross_post_meta_column';
     const NONCE = 'btz_cross_post_noncename';
     const VALIDATION_CROSS_POST_MESSAGE = 'btz_validation_cross_post_message';
@@ -18,6 +19,8 @@ class BTZ_Cross_Post {
 
 
         add_action('admin_enqueue_scripts', array(&$this, 'enqueue_script'));
+        
+        add_action('wp_ajax_query_posts', 'Btz_Queries::ajax_query_posts');
     }
 
     function post_types_assets() {
@@ -40,6 +43,10 @@ class BTZ_Cross_Post {
         if (function_exists('jquiw_enqueue_scripts')) {
             jquiw_enqueue_scripts();
         }
+        
+        wp_register_script('btz-content-common', plugins_url('/js/btz-content-common.js', __FILE__),
+                   array('jquery', 'jquery-ui-progressbar'));
+        wp_enqueue_script( 'btz-content-common' );
     }
 
     /*
@@ -80,6 +87,7 @@ class BTZ_Cross_Post {
     }
 
     function btz_inner_cross_post_meta_box($post) {
+       
         $message = '';
         // Use nonce for verification
         wp_nonce_field(plugin_basename(__FILE__), self::NONCE);
@@ -93,7 +101,7 @@ class BTZ_Cross_Post {
             }
         }
         ?>  
-        <table class=""widefat">
+        <table class="widefat">
                <tr>
                 <td>
                     <label for="cross_post_id">Cross Post ID :
@@ -104,9 +112,20 @@ class BTZ_Cross_Post {
                     <span><?php echo $displayList; ?></span>
                 </td>
                 <td>
+                    <a href="javascript:;" id="<?php echo self::CROSS_POST_SEARCH_FIELD ; ?>" class="btz-cross-post button button-primary">Scegli post</a>
+                </td>
+                <td>
             </tr> 
         </table>
-
+        
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("<?php echo "#" . self::CROSS_POST_SEARCH_FIELD ?>" ).postChoice({
+                    target : jQuery("<?php echo "#" . self::CROSS_POST_NAME_FIELD ?>"),
+                    currentPost : <?php echo $post->ID; ?>
+                });
+            });
+        </script>
 
         <?php
     }
@@ -197,6 +216,8 @@ class BTZ_Cross_Post {
             delete_option(self::VALIDATION_CROSS_POST_MESSAGE);
         }
     }
+    
+    
 
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: BTZ shared script
+ * Plugin Name: BTZ extend jquery
  * Description: caricamento script e style condivisi
  * Version: 0.1
  * Author: Aisartag
@@ -13,13 +13,19 @@
 
 add_action( 'admin_enqueue_scripts', 'batraz_script_load' );
 function batraz_script_load($hook) {
-   if($hook != 'plugins_page_otp-setting'){
+ //  error_log(print_r($hook, true)); 
+   if($hook != 'plugins_page_otp-setting' && $hook != 'post.php' ){
        return;
    } 
     wp_enqueue_script('jquery');
     wp_enqueue_script('jquery-ui-core');
     wp_enqueue_script('jquery-ui-widget');
     wp_enqueue_script('jquery-ui-tabs');
+    wp_enqueue_script('jquery-ui-progressbar');
+    
+    wp_register_script('btz-common', plugins_url('/js/common/btz-common.js', __FILE__),
+                   array('jquery', 'jquery-ui-progressbar'));
+    wp_enqueue_script( 'btz-common' );
      
 }
 

@@ -163,7 +163,26 @@ if (!class_exists('Btz_Queries')) {
 
        
         
-    }
+    
+        public static function ajax_query_posts() {
+           // error_log(print_r($_POST, true));
+            
+            if (isset($_POST['tiny_request'])) {
+                $request = $_POST['tiny_request'];
+                switch ($request) {
+                    case 'taxonomies':
+                        echo json_encode(self::get_taxonomies_with_ids());
+                        break;
+                    case 'post_list':
+                        if (isset($_POST['pageNum'])) {
+                            echo json_encode(self::get_post_titles_ids_paged($_POST['pageNum']));
+                        }
+                        break;
+                }
+            }
 
-}
+            die();
+        }
+
+}  }
 ?>
