@@ -20,7 +20,6 @@ function leader_template_redirect() {
         exit;
 
     }
-
     
 }
 
@@ -55,32 +54,32 @@ function leader_header_ajax_setting(){
     
 }
 
-/*
- *  OBSOLETE ????????????????????????????
- */
-function leader_header_setting(){
-    global $post;
-    
-     // verifica esistenza classe BTZ_Otp_Options
-    if( !class_exists( 'BTZ_Otp_Options' ) )
-        return false;
-    
-     // verifica esistenza classe BTZ_Leaders_Helper 
-     if(!class_exists('BTZ_Leaders_Helper'))
-         return false;
-    
-    $redirect = get_post_meta( $post->ID, BTZ_Otp_Options::LEADER_META_REDIRECT_KEY, true );
-    if($redirect)return;
- 
-    
-    $taxleader = get_post_meta( $post->ID, BTZ_Otp_Options::LEADER_META_FIELD_KEY, true );
-    if(!$taxleader)return;
-    
-    $show_desc = get_post_meta( $post->ID, BTZ_Otp_Options::LEADER_META_SHOW_DESC_KEY, true );
-    
-    $result = BTZ_Leaders_Helper::otp_get_leaders_svc($taxleader, 0, 20);
-    $result['show_desc'] = (bool)$show_desc;
+function get_leaders_ppp_option(){
+    $ppp = get_option(OPTION_LEADERS_PPP);
+    $result = ($ppp) ? $ppp : 5;
     return $result;
+}
+
+function the_leaders_ppp_option(){
+    echo get_leaders_ppp_option();
+}
+function get_leaders_speed_option(){
+    $speed = get_option(OPTION_LEADERS_SPEED);
+    $result = ($speed) ? $speed : 1;
+    return $result;
+}
+
+function the_leaders_speed_option(){
+    echo get_leaders_speed_option();
+}
+
+function get_debug_state(){
+    return (WP_DEBUG) ? 1 : 0;
+    
+}
+ 
+function the_debug_state(){
+    echo get_debug_state();
     
 }
 

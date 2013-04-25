@@ -12,11 +12,12 @@
                    </div>
              </div>
               <script>
+                 
                 jQuery(document).ready(function(){
                      jQuery("#slide-leaders").loadLeaders({ slug : '<?php echo $leadarr['slug']; ?>',
-                                                            ppp : <?php echo get_option(OPTION_LEADERS_PPP); ?>,
-                                                            speed : <?php echo get_option(OPTION_LEADERS_SPEED); ?>,
-                                                            debug : <?php echo WP_DEBUG ?>
+                                                            ppp : <?php the_leaders_ppp_option(); ?>,
+                                                            speed : <?php the_leaders_speed_option(); ?>,
+                                                            debug : <?php the_debug_state(); ?>
                                             });
                 });
              </script>
