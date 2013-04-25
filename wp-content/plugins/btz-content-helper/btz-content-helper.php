@@ -33,7 +33,12 @@ function btzsc_enqueue_scripts(){
      wp_enqueue_style( 'btzsc-style' );
     
 }
-
+add_filter('upload_mimes', 'custom_upload_mimes');
+function custom_upload_mimes ( $existing_mimes=array() ) {
+        
+	$existing_mimes['webm'] = 'video/webm';
+	return $existing_mimes;
+}
 
 /*
  *  mostra ID nella lista dei posts
