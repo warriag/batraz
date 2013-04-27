@@ -72,17 +72,19 @@ if (!class_exists('Btz_Flickr')) {
                     $photos = $_POST['photos'];
                     $photos = !is_nan($photos) ? $photos : 10;
 
-                    $size = isset($_POST['size']) ? $_POST['size'] : 'small';
-                    $sizeZoom = isset($_POST['sizeZoom']) ? $_POST['sizeZoom'] : 'medium_640';
+                    $size = isset($_POST['dim']) ? $_POST['dim'] : 'thumbnail';
+                    $sizeZoom = isset($_POST['dimZoom']) ? $_POST['dimZoom'] : 'original';
 
                     $fx = new phpFlickr('86dc97b665ab0f28078d49e6e981a080'); // key pubblica
+                    //$ps = $fx->photosets_getPhotos($psID, NULL, NULL, $photos);
                     $ps = $fx->photosets_getPhotos($psID, NULL, NULL, $photos);
                     foreach($ps['photoset']['photo'] as $image){
-    //                    $result[] = array('title' => $image['title'], 'href' => $fx->buildPhotoURL($image, 'medium_640'),
-    //                                    'src' => $fx->buildPhotoURL($image, 'small') );
                         $result[] = array('title' => $image['title'], 'href' => $fx->buildPhotoURL($image, $sizeZoom),
                                         'src' => $fx->buildPhotoURL($image, $size) );
+                        
                     }
+                    
+                    error_log(print_r($ps, true));
 
                     echo json_encode($result);
                 }
