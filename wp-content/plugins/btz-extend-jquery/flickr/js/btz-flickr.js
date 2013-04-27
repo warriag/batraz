@@ -124,8 +124,9 @@
                 }
 
                 function fillContainer() {
-                    console.log('start ' + start);
+                    
                     wrapper.empty();
+                    
                     for (var i = start; i < start + matrix; i++) {
                         $(links[i % lenLinks][0]).css({'margin-right' : '20px', 'margin-bottom' : '20px'});
                         $(links[i % lenLinks]).appendTo(wrapper);

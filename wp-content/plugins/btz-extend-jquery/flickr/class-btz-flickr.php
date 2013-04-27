@@ -83,8 +83,6 @@ if (!class_exists('Btz_Flickr')) {
                                         'src' => $fx->buildPhotoURL($image, $size) );
                         
                     }
-                    
-                    error_log(print_r($ps, true));
 
                     echo json_encode($result);
                 }
