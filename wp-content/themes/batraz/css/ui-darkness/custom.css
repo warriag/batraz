@@ -424,13 +424,24 @@ a.comment-reply-link, .edit-link  a{
 }
 
 
-/*----------------------------------------------------------------------------*/
-/*                  LEADERS BUTTONS( 38 x 54 )  
-/*-----------------------------------------------------------------------------*/
-.leaders-prev span {
-    background: url('images/previous.png') no-repeat;;
+/*---------------------------------------------------------------------------
+        BUTTONS NAV SLIDE( 32 x 46 )  
+-----------------------------------------------------------------------------*/
+
+.leaders-prev span, .flickr-sets-prev span , .flickr-photos-prev span{
+    background: url('images/previous-white.png') no-repeat;;
 }
 
-.leaders-next span {
-    background: url('images/next.png') no-repeat;;
+.leaders-next span, .flickr-sets-next span , .flickr-photos-next span {
+    background: url('images/next-white.png') no-repeat;;
+}
+
+/*---------------------------------------------------------------------------
+        FLICKR
+-----------------------------------------------------------------------------*/
+.flickr-sets .flickr-sets-wrapper .Sets .SetCase{
+    padding-top:7px;
+    width: 91px;
+    height: 95px;
+    background: url(images/set_case.gif) no-repeat;
 }

@@ -20,7 +20,7 @@
         
         var wrapper = $(this).children('div');
         if(wrapper.length != 1 ){
-            console.log("wrapper length = " + wrapper.length + "(not 1) ");
+            console.log("wrapper length = " + wrapper.length + "(not 1) in loadLeaders");
             return;
         }
         
@@ -75,7 +75,7 @@
                 // counter++; 
                 var termName = (options.debug) ? data['term_name'] + '(' + ++counter + ')' : data['term_name'] ;
                
-                //term.text(data['term_name'] + '(' + counter + ')');
+                
                 term.text(termName);
                 links.push(block);
                 
@@ -114,24 +114,13 @@
                  data,
                  function(response) {
                     if(typeof(response) === 'object'){ 
-                        console.log(response);
+                       
                         wrapper.empty();
                         $(response).each(function(){
                             createSetlink(this);
                         });
                         lenLinks = links.length;
-                        
-//                        if(links.length <= ppp ){
-//                            ppp = links.length;
-//                        }else{
-//                            var remainder = Math.ceil(links.length / ppp ) * ppp - links.length;
-//                            for(var i = 0 ; i < remainder ; i++ ){
-//                                links.push(links[i]);
-//                            }
-//                        }
                         fillContainer();
-                        
-                       
                     }
                  }, 'json')
                  
