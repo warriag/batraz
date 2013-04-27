@@ -28,7 +28,7 @@ if (!class_exists('Btz_Flickr')) {
         
         function load_scripts(){
             wp_register_script('btz-flickr', plugins_url('/js/btz-flickr.js', __FILE__),
-                    array('jquery', 'mCustomScrollbar', 'fancybox', 'jquery-ui-progressbar'));
+                    array('jquery',  'fancybox', 'jquery-ui-progressbar'));
             
             wp_localize_script( 'btz-flickr', 'flickr_ajax_object',
                     array( 'ajax_url' => admin_url( 'admin-ajax.php' ),

@@ -14,22 +14,27 @@
         
        
         defaults = {
-            'imageClass': 'imageContainer',
-            'photosContainer': null,
-            'galleryRel': 'FlickrGallery',
-            'dim': 'thumbnail',
-            'dimZoom': 'original',
-            'wArrow':32,
-            tplp: {
-                next: '<a title="Successivo" class="flickr-photos-nav flickr-photos-next" href="javascript:;"><span></span></a>',
-                prev: '<a title="Precedente" class="flickr-photos-nav flickr-photos-prev" href="javascript:;"><span></span></a>'
-            },
-            pppp: 5,
-            speedp: 1
+            imageClass: 'imageContainer',
+            photosContainer: null,
+            galleryRel: 'FlickrGallery',
+            dim: 'thumbnail',
+            dimZoom: 'original',
+            wArrow:32,
+            photos :{
+                tpl: {
+                    next: '<a title="Successivo" class="flickr-photos-nav flickr-photos-next" href="javascript:;"><span></span></a>',
+                    prev: '<a title="Precedente" class="flickr-photos-nav flickr-photos-prev" href="javascript:;"><span></span></a>'
+                },
+                cols : 5,
+                rows : 3,
+                speed : 1
+            }
+            
         }
         
+
+        options = $.extend(true, defaults, options);
        
-        options = $.extend(defaults, options);
         if (!options.photosContainer || options.photosContainer.length == 0) {
             console.log("photosContainer in bindSetFlickr undefined or empty.");
             return;
@@ -64,31 +69,28 @@
         });
         
        
-        
-        
 
-        var next = options.photosContainer.prepend(options.tplp.next);
-        var prev = options.photosContainer.prepend(options.tplp.prev);
+        var next = options.photosContainer.prepend(options.photos.tpl.next);
+        var prev = options.photosContainer.prepend(options.photos.tpl.prev);
 
 
 
         var links = new Array(),
-        ppp, speed,
+        cols, rows, speed, matrix,
         lenLinks = 0,
-        start = 0;
+        start = 0,
+        counter = 0;
 
-        ppp = (isNaN(options.pppp) || options.pppp <= 0 || options.pppp > 5) ? 3 : options.pppp;
-        speed = (isNaN(options.speedp) || options.speedp <= 0 || options.pppp > ppp) ? 1 : options.speedp;
+        cols = (isNaN(options.photos.cols) || options.photos.cols <= 0 || options.photos.cols > 5) ? 3 : options.photos.cols;
+        rows = (isNaN(options.photos.rows) || options.photos.rows <= 0 || options.photos.cols > 5) ? 3 : options.photos.rows;
+        speed = (isNaN(options.photos.speed) || options.photos.speed <= 0 || options.photos.cols > cols) ? 1 : options.photos.speed;
         
         var width = $(wrapper).width() - options.wArrow,
-        height =  $(wrapper).height();       
+        maxCols = Math.floor(width / ( currentDim.l + 20) );
+        if(maxCols < cols)cols = maxCols;
         
+        matrix = cols * rows;
         
-        maxPpp = Math.floor(width / ( currentDim.l + 20) );
-               
-        if(maxPpp < ppp)ppp = maxPpp;
-        
-
  
         return this.each(function(){
                 $(".flickr-photos-next", options.photosContainer[0]).on('click', function() {
@@ -108,7 +110,7 @@
 
                 });
             
-                counter = 0; 
+               
                 function createSetImages(data) {
                     var block = $('<p />').addClass(options.imageClass).css({width : currentDim });
                     a = $('<a />').attr({'title': data['title'], 'href': data['href'], 'rel': options.galleryRel}).appendTo(block);
@@ -122,12 +124,10 @@
                 }
 
                 function fillContainer() {
-
+                    console.log('start ' + start);
                     wrapper.empty();
-                    for (var i = start; i < start + ppp; i++) {
-                        if(i < start + ppp - 1){
-                            $(links[i % lenLinks][0]).css({'margin-right' : '20px'});
-                        }
+                    for (var i = start; i < start + matrix; i++) {
+                        $(links[i % lenLinks][0]).css({'margin-right' : '20px', 'margin-bottom' : '20px'});
                         $(links[i % lenLinks]).appendTo(wrapper);
                     }
                 }
@@ -155,6 +155,7 @@
                     complete: function() {
                         spinner.spinning('hide');
                         prev.show(); next.show();
+                       
                     }
                 });
 
@@ -171,10 +172,11 @@
                         data,
                         function(response) {
                             if (typeof(response) === 'object') {
+                                counter = 0; start = 0;
                                 $(response).each(function() {
                                     createSetImages(this);
                                 });
-
+                                
                                 lenLinks = links.length;
                                 fillContainer();
 
@@ -200,12 +202,14 @@
             'imageClass': 'imageContainer',
             'setsContainer': null,
             'photosContainer': null,
-            tpl: {
-                next: '<a title="Successivo" class="flickr-sets-nav flickr-sets-next" href="javascript:;"><span></span></a>',
-                prev: '<a title="Precedente" class="flickr-sets-nav flickr-sets-prev" href="javascript:;"><span></span></a>'
+            sets:{
+                tpl: {
+                    next: '<a title="Successivo" class="flickr-sets-nav flickr-sets-next" href="javascript:;"><span></span></a>',
+                    prev: '<a title="Precedente" class="flickr-sets-nav flickr-sets-prev" href="javascript:;"><span></span></a>'
+                },
+                cols : 5,
+                speed : 1
             },
-            ppp: 5,
-            speed: 1,
             debug: 1
         }
         options = $.extend(defaults, options);
@@ -221,18 +225,17 @@
             return;
         }
 
-        var next = $(this).prepend(options.tpl.next);
-        next.hide();
-        var prev = $(this).prepend(options.tpl.prev);
-        prev.hide();
+        var next = $(this).prepend(options.sets.tpl.next);
+        var prev = $(this).prepend(options.sets.tpl.prev);
+
 
         var links = new Array(),
-                ppp, speed
+                cols, speed
         lenLinks = 0,
                 start = 0;
 
-        ppp = (isNaN(options.ppp) || options.ppp <= 0 || options.ppp > 5) ? 3 : options.ppp;
-        speed = (isNaN(options.speed) || options.speed <= 0 || options.ppp > ppp) ? 1 : options.speed;
+        cols = (isNaN(options.sets.cols) || options.sets.cols <= 0 || options.sets.cols > 5) ? 3 : options.sets.cols;
+        speed = (isNaN(options.sets.speed) || options.sets.speed <= 0 || options.sets.cols > cols) ? 1 : options.sets.speed;
 
         return this.each(function() {
 
@@ -272,7 +275,7 @@
             function fillContainer() {
 
                 wrapper.empty();
-                for (var i = start; i < start + ppp; i++) {
+                for (var i = start; i < start + cols; i++) {
                     $(links[i % lenLinks]).appendTo(wrapper);
                 }
                 addClickHandler();
@@ -298,8 +301,7 @@
             $.ajaxSetup({
                 beforeSend: function() {
                     spinner.spinning('show');
-                    next.hide();
-                    prev.hide();
+                    next.hide(); prev.hide();
                 },
                 complete: function() {
                     spinner.spinning('hide');
@@ -307,7 +309,7 @@
                         next.show();
                         prev.show();
                     }
-                   
+                  
                 }
             });
 
