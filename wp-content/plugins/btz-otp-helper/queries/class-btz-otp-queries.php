@@ -117,7 +117,7 @@ if (!class_exists('Btz_Otp_Queries')) {
         public static function get_otp_trailers_from_tt_id($tt_id, $small=true){
             global $wpdb;
             
-            $fields = ( $small ) ? "pp.post_title, pp.guid " : " pp.* ";   
+            $fields = ( $small ) ? "pp.ID, pp.post_title, pp.guid " : " pp.* ";   
             $query = "
              SELECT $fields , tt.term_taxonomy_id, tt.taxonomy, t.term_id, t.name as term_name, t.slug
 FROM
@@ -147,7 +147,7 @@ LIMIT 0 , 1
         public static function get_otp_leaders_from_tt_id($tt_id, $small=true){
             global $wpdb;
             
-            $fields = ( $small ) ? "pp.post_title, pp.guid " : " pp.* ";   
+            $fields = ( $small ) ? "pp.ID, pp.post_title, pp.guid " : " pp.* ";   
             $query = "
              SELECT $fields , tt.term_taxonomy_id, tt.taxonomy, t.term_id, t.name as term_name, t.slug
 FROM
