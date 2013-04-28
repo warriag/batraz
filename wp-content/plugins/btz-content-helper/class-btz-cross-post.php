@@ -65,7 +65,7 @@ class BTZ_Cross_Post {
             
             
             if ($cross_post_id) {
-                $listPosts = Btz_Queries::get_post_titles_from_ids($cross_post_id);
+                $listPosts = Btz_Content_Queries::get_post_titles_from_ids($cross_post_id);
                 $displayList = "";
                 if ($listPosts) {
                     $displayList = $this->format_list_posts($listPosts);
@@ -95,7 +95,8 @@ class BTZ_Cross_Post {
 
         $cross_post_id = get_post_meta($post->ID, self::CROSS_POST_META_FIELD_KEY, true);
         if ($cross_post_id) {
-            $listPosts = Btz_Queries::get_post_titles_from_ids($cross_post_id);
+            $listPosts = Btz_Content_Queries::get_post_titles_from_ids($cross_post_id);
+            $displayList = "";
             if ($listPosts) {
                 $displayList = $this->format_list_posts($listPosts);
             }
@@ -154,7 +155,7 @@ class BTZ_Cross_Post {
             if (!$cross_post_id) {
                 delete_post_meta($post_id, self::CROSS_POST_META_FIELD_KEY);
             } else {
-                $listPosts = Btz_Queries::get_post_titles_from_ids($cross_post_id);
+                $listPosts = Btz_Content_Queries::get_post_titles_from_ids($cross_post_id);
                 $message = $this->validate_list_posts($cross_post_id, $listPosts);
                 if ($message){
                     update_option(self::VALIDATION_CROSS_POST_MESSAGE, $message);

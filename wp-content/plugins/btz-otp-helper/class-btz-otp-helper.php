@@ -42,18 +42,19 @@ function TO_deactivated(){
         
 }
     
-include_once( OTPPATH . '/include/class-btz-otp-options.php'); 
-
+require_once( OTPPATH . '/include/class-btz-otp-options.php'); 
+require_once( OTPPATH . '/queries/class-btz-otp-queries.php'); 
     
 /*
- *  tentativo di filtro sulle liste da taxonomies
+ *  filtro  sulle liste da taxonomies con uso otp_order
  */
 if(!is_admin()){
     
-    add_filter('btz_entry_meta', 'btz_entry_meta_func', 10, 2);
-    function btz_entry_meta_func($a, $b) {
-        return  $a . $b;
-    }
+    
+//    add_filter('btz_entry_meta', 'btz_entry_meta_func', 10, 2);
+//    function btz_entry_meta_func($a, $b) {
+//        return  $a . $b;
+//    }
     
     
     add_filter('posts_orderby_request', 'edit_posts_orderby', 99, 2);
@@ -338,52 +339,19 @@ new OTP_Helper();
 new BTZ_Otp_Options();
 
 
-
+/*
+ *  questo è un filtro batraz ( l'apply-filters - per utilizzarlo
+ *  inserirlo nei template single 
+ *  prev - next saranno prev -next nella catena otp e non rispetto alla data del post
+ *  return true se il filtro è stato applicato
+ */
 add_filter( 'btz_otp_nav', 'btz_otp_nav_func', 10, 2);
 function btz_otp_nav_func($container='nav', $class='nav-single'){
-            
     
     global $post;
-    global $wpdb;
-  
-    if(is_user_logged_in()){
-        $where_status = " ( p.post_status = 'publish' OR p.post_status = 'private' ) ";
-    }else{
-        $where_status = " p.post_status = 'publish' ";
-    }
     
-
-    //var_dump($where_status);
-    
-    $statement = 'SELECT tax.*, pp.post_title as title_prev, pp.guid as guid_prev , pn.post_title as title_next, pn.guid as guid_next, tt.taxonomy, t.name
-FROM
-(
-SELECT mid.*, trp.object_id as otp_prev, trn.object_id as otp_next 
-FROM
-(SELECT tr.object_id, tr.term_taxonomy_id ,
-						(SELECT MAX(trs.otp_order)
-								FROM `wp_term_relationships` trs INNER JOIN `wp_posts` p ON p.ID = trs.object_id 
-								WHERE ' . $where_status . ' AND trs.term_taxonomy_id = tr.term_taxonomy_id AND trs.otp_order < tr.otp_order ) as order_prev,
-						(SELECT MIN(trs.otp_order)
-								FROM `wp_term_relationships` trs INNER JOIN `wp_posts` p ON p.ID = trs.object_id 
-								WHERE ' . $where_status . ' AND trs.term_taxonomy_id = tr.term_taxonomy_id AND trs.otp_order > tr.otp_order ) as order_next
-
-FROM `wp_term_relationships` tr
-) as mid
-LEFT JOIN `wp_term_relationships` trp ON trp.term_taxonomy_id = mid.term_taxonomy_id AND trp.otp_order = mid.order_prev
-LEFT JOIN `wp_term_relationships` trn ON trn.term_taxonomy_id = mid.term_taxonomy_id AND trn.otp_order = mid.order_next
-WHERE ( (mid.order_prev is not null) OR (mid.order_next is not null))
-) as tax
-INNER JOIN wp_term_taxonomy AS tt ON tax.term_taxonomy_id = tt.term_taxonomy_id
-INNER JOIN wp_terms AS t ON t.term_id = tt.term_id
-LEFT join wp_posts pp ON pp.ID = tax.otp_prev
-LEFT join wp_posts pn ON pn.ID = tax.otp_next
-WHERE tax.object_id = %d
-                 ';   
-    
-    
-    $result = $wpdb->get_results($wpdb->prepare($statement, $post->ID ));
-    //var_dump($result);
+    $result = Btz_Otp_Queries::get_otp_navigation_from_post_id($post->ID);
+    //error_log(print_r($result, true));
     
     $tax_excluded = array();
     $options = get_option(BTZ_Otp_Options::OPTIONS_OTP_EXCLUDE);
@@ -397,21 +365,45 @@ WHERE tax.object_id = %d
         if(in_array($row->taxonomy, $tax_excluded))
             continue;
         
-        //echo '<' . $container . ' class="' . $class . '" title="' . $row->name . '" >';
-        echo '<' . $container . ' class="' . $class . '" >';
-       
-        if(!empty($row->title_prev) && !empty($row->guid_prev)){
-         //  var_dump($row->guid_prev); 
-           echo "<span title=\"{$row->name}\" class=\"nav-previous\"><a href=\"{$row->guid_prev}\" rel=\"prev\"><span class=\"meta-nav\">&larr;</span> {$row->title_prev}</a></span>";
-        }
-         
-        if(!empty($row->title_next) && !empty($row->guid_next)){
-          //  var_dump($row->guid_next); 
-            echo "<span title=\"{$row->name}\" class=\"nav-next\"><a href=\"{$row->guid_next}\" rel=\"next\">{$row->title_next} <span class=\"meta-nav\">&rarr;</span></a></span>";
+        // circular
+        if(empty($row->guid_prev)){
+            $last = Btz_Otp_Queries::get_otp_trailers_from_tt_id($row->term_taxonomy_id);
+            if($last){
+                $row->guid_prev = $last->guid;
+                $row->title_prev = $last->post_title;
+            }
         }
         
-       
-        echo '</' . $container . '>';
+        if(empty($row->guid_next)){
+            $first = Btz_Otp_Queries::get_otp_leaders_from_tt_id($row->term_taxonomy_id);
+            if($first){
+                $row->guid_next = $first->guid;
+                $row->title_next = $first->post_title;
+            }
+        }
+        
+        ?>
+         <<?php echo $container; ?> class="<?php echo $class; ?>" 
+            <?php if(!empty($row->title_prev) && !empty($row->guid_prev)) : ?>
+               <span title="<?php echo $row->name; ?>" class="nav-previous">
+                   <a href="<?php echo $row->guid_prev; ?>" rel="prev">
+                       <span class="meta-nav">&larr;</span><?php echo $row->title_prev; ?>
+                   </a>
+               </span>
+            <?php endif; ?>
+         
+            <?php if(!empty($row->title_next) && !empty($row->guid_next)) : ?>
+               <span title="<?php echo $row->name; ?>" class="nav-next">
+                   <a href="<?php echo $row->guid_next; ?>" rel="next">
+                       <?php echo $row->title_next; ?><span class="meta-nav">&rarr;</span>
+                   </a>
+               </span>
+            <?php endif; ?>
+         
+         </<?php echo $container; ?>
+        
+        <?php
+        
         $accomplished = true;
        
     }

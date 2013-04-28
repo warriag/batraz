@@ -1,15 +1,15 @@
 <?php
 
 /**
- * The class setup for post-content-shortcodes plugin
+ * The class setup for queries custom content
  * @version 0.3.2
  */
-if (!class_exists('Btz_Queries')) {
+if (!class_exists('Btz_Content_Queries')) {
 
     /**
      * Classe e metodi per implementazione queries
      */
-    class Btz_Queries {
+    class Btz_Content_Queries {
 
         public static function get_taxonomies_with_ids() {
 
