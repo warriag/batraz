@@ -43,7 +43,7 @@ function TO_deactivated(){
 }
     
 require_once( OTPPATH . '/include/class-btz-otp-options.php'); 
-require_once( OTPPATH . '/queries/class-btz-otp-queries.php'); 
+require_once( OTPPATH . '/repository/class-btz-otp-repository.php'); 
     
 /*
  *  filtro  sulle liste da taxonomies con uso otp_order

@@ -1,14 +1,14 @@
 <?php
 /**
- * The class setup for queries custom otp order
+ * The class setup for repository custom otp order
  * @version 0.3.2
  */
-if (!class_exists('Btz_Otp_Queries')) {
+if (!class_exists('Btz_Otp_Repository')) {
 
     /**
-     * Classe e metodi per implementazione queries
+     * Classe e metodi per implementazione repository
      */
-    class Btz_Otp_Queries {
+    class Btz_Otp_Repository {
         
         public static function get_otp_navigation_from_post_id($postId){
            

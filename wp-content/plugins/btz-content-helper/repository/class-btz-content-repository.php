@@ -1,15 +1,15 @@
 <?php
 
 /**
- * The class setup for queries custom content
+ * The class setup for repository custom content
  * @version 0.3.2
  */
-if (!class_exists('Btz_Content_Queries')) {
+if (!class_exists('Btz_Content_Repository')) {
 
     /**
-     * Classe e metodi per implementazione queries
+     * Classe e metodi per implementazione repository
      */
-    class Btz_Content_Queries {
+    class Btz_Content_Repository {
 
         public static function get_taxonomies_with_ids() {
 

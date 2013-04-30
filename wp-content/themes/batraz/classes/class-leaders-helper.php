@@ -65,7 +65,7 @@ class BTZ_Leaders_Helper {
       --------------------------------------------------------------------------------------------------*/
      public static function otp_get_leaders_redirect(){
          global $wpdb, $wp_query,  $post;
-         if (!class_exists('Btz_Otp_Queries')) {
+         if (!class_exists('Btz_Otp_Repository')) {
              return;
          }
          $redirect = get_post_meta( $post->ID, BTZ_Otp_Options::LEADER_META_REDIRECT_KEY, true );
@@ -74,7 +74,7 @@ class BTZ_Leaders_Helper {
          $taxleader = get_post_meta( $post->ID, BTZ_Otp_Options::LEADER_META_FIELD_KEY, true );
          if(!$taxleader)return;
 
-         $totalposts = Btz_Otp_Queries::get_otp_leaders_count($taxleader);
+         $totalposts = Btz_Otp_Repository::get_otp_leaders_count($taxleader);
 
          $ppp = intval(get_query_var('posts_per_page'));
          $wp_query->found_posts = $totalposts;
@@ -91,7 +91,7 @@ class BTZ_Leaders_Helper {
     public static function otp_get_leaders_svc($taxleader, $startrow, $numrows){
         global $wp_query;
 
-        $sql_result = Btz_Otp_Queries::get_otp_leaders($wp_query, $taxleader, $startrow, $numrows);
+        $sql_result = Btz_Otp_Repository::get_otp_leaders($wp_query, $taxleader, $startrow, $numrows);
         $result = array('slug' => $taxleader, 'data' => $sql_result);
         wp_reset_query();
         return $result;

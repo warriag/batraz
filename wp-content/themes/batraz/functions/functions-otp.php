@@ -96,10 +96,10 @@ function btz_otp_navigation($container='nav', $class='nav-single'){
     
     
     // verifica esistenza classe BTZ_Otp_Options
-    if( !class_exists( 'BTZ_Otp_Queries' ) )
+    if( !class_exists( 'BTZ_Otp_Repository' ) )
         return false;
     
-    $sql_result = Btz_Otp_Queries::get_otp_navigation_from_post_id($post->ID);
+    $sql_result = Btz_Otp_Repository::get_otp_navigation_from_post_id($post->ID);
   //  error_log(print_r($sql_result, true));
     $tax_excluded = array();
     $options = get_option(BTZ_Otp_Options::OPTIONS_OTP_EXCLUDE);
@@ -118,7 +118,7 @@ function btz_otp_navigation($container='nav', $class='nav-single'){
         if($infinite_nav){
            error_log(print_r('sti cazze', true));
             if(empty($row->otp_prev)){
-                $last = Btz_Otp_Queries::get_otp_trailers_from_tt_id($row->term_taxonomy_id);
+                $last = Btz_Otp_Repository::get_otp_trailers_from_tt_id($row->term_taxonomy_id);
                 if($last){
                     $row->otp_prev = $last->ID;
                     $row->guid_prev = $last->guid;
@@ -127,7 +127,7 @@ function btz_otp_navigation($container='nav', $class='nav-single'){
             }
 
             if(empty($row->otp_next)){
-                $first = Btz_Otp_Queries::get_otp_leaders_from_tt_id($row->term_taxonomy_id);
+                $first = Btz_Otp_Repository::get_otp_leaders_from_tt_id($row->term_taxonomy_id);
                 if($first){
                     $row->otp_next = $first->ID;
                     $row->guid_next = $first->guid;
