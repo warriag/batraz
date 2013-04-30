@@ -311,8 +311,18 @@ nav.nav-single-otp{
     min-height: 10rem;
     margin:14px 0 14px 0;
     padding-top:14px;
-/*    border:1px solid #000;*/
+
 }
+
+nav.nav-single-otp > span{
+     position: absolute;
+     text-align: center;
+     width: 100%;
+     font: bold "Helvetica Neue", Sans-Serif;
+    text-transform: uppercase;
+     
+}
+    
 
 nav.nav-single-otp div{
     display: inline-block;
@@ -357,6 +367,9 @@ nav.nav-single-otp .nav-single-otp-prev a img {
      margin-left:10px;
 }
 
+/*---------------------------------------------------------------------------
+        CROSS POST
+-----------------------------------------------------------------------------*/
 .cross-post {
 	border-bottom: 4px double #ededed;
 	margin-bottom: 72px;

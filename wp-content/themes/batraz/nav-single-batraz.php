@@ -19,6 +19,7 @@
 <?php else : ?> 
     <?php foreach ($array_nav as $nav) : ?>
         <nav class="nav-single-otp ui-widget-content ui-corner-all" title="<?php echo $nav->name; ?>">
+            <span><?php echo $nav->name; ?></span>
             <?php if($nav->otp_prev) : ?>
                 <div class="nav-single-otp-prev">
 

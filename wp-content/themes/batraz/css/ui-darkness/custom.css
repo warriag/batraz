@@ -373,11 +373,9 @@ a.comment-reply-link, .edit-link  a{
 .ui-tooltip {
     padding: 10px 20px;
     color: #bbb;
-/*    border-radius: 20px;*/
     border-radius: 14px;
     font: bold 14px "Helvetica Neue", Sans-Serif;
     text-transform: uppercase;
-/*    box-shadow: 0 0 7px black;*/
     box-shadow: 0 0 7px #1FA7E4;
 
 }
