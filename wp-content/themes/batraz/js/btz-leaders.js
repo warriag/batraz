@@ -38,7 +38,7 @@
             $(this).prepend(options.tpl.next); 
             $(this).prepend(options.tpl.prev);
             
-            $(".leaders-next", this).live('click', function(){
+            $(".leaders-next", this).on('click', function(){
                
                 start += speed;
                 start = (start % lenLinks);
@@ -49,7 +49,7 @@
                 
             });
              
-            $(".leaders-prev", this).live('click', function(){
+            $(".leaders-prev", this).on('click', function(){
 
                 start -= speed;
                 while(start < 0){

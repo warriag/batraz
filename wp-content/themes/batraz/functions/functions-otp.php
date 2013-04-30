@@ -89,15 +89,16 @@ function the_debug_state(){
 function btz_otp_navigation($container='nav', $class='nav-single'){
     
     global $post;
+    $result = array();
     
     // verifica esistenza classe BTZ_Otp_Options
     if( !class_exists( 'BTZ_Otp_Options' ) )
-        return false;
+        return $result;
     
     
     // verifica esistenza classe BTZ_Otp_Options
     if( !class_exists( 'BTZ_Otp_Repository' ) )
-        return false;
+        return $result;
     
     $sql_result = Btz_Otp_Repository::get_otp_navigation_from_post_id($post->ID);
   //  error_log(print_r($sql_result, true));
@@ -110,7 +111,7 @@ function btz_otp_navigation($container='nav', $class='nav-single'){
     
     $infinite_nav = get_option(OPTION_OTP_NAV_INFINITE);
     
-    $result = array();
+    
     foreach($sql_result as $row){
         if(in_array($row->taxonomy, $tax_excluded))
             continue;

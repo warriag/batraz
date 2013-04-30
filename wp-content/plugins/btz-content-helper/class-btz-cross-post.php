@@ -94,9 +94,10 @@ class BTZ_Cross_Post {
 
 
         $cross_post_id = get_post_meta($post->ID, self::CROSS_POST_META_FIELD_KEY, true);
+        $displayList = "";
         if ($cross_post_id) {
             $listPosts = Btz_Content_Repository::get_post_titles_from_ids($cross_post_id);
-            $displayList = "";
+           
             if ($listPosts) {
                 $displayList = $this->format_list_posts($listPosts);
             }
