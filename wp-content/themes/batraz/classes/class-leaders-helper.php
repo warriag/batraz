@@ -33,7 +33,7 @@ class BTZ_Leaders_Helper {
                   $tmp_post = $post;
                   $slug = $result_query['slug'];
                   
-                 ;
+                  $result = NULL;
                   foreach ($result_query['data'] as $post){
                       setup_postdata($post);
                       $result[] = array('permalink' => get_permalink(),
@@ -46,7 +46,9 @@ class BTZ_Leaders_Helper {
                   }
                  
                   $post = $tmp_post;
-                  echo json_encode($result);
+                  if(is_array($result)){
+                    echo json_encode($result);
+                  }
              }
              
          }
@@ -63,75 +65,38 @@ class BTZ_Leaders_Helper {
       --------------------------------------------------------------------------------------------------*/
      public static function otp_get_leaders_redirect(){
          global $wpdb, $wp_query,  $post;
-
+         if (!class_exists('Btz_Otp_Queries')) {
+             return;
+         }
          $redirect = get_post_meta( $post->ID, BTZ_Otp_Options::LEADER_META_REDIRECT_KEY, true );
          if(!$redirect)return;
 
          $taxleader = get_post_meta( $post->ID, BTZ_Otp_Options::LEADER_META_FIELD_KEY, true );
          if(!$taxleader)return;
 
+         $totalposts = Btz_Otp_Queries::get_otp_leaders_count($taxleader);
 
-         $total = "
-              SELECT COUNT(*)
-           FROM
-            (
-            SELECT MIN(tr.object_id) AS object_id,  leaders.term_taxonomy_id, tr.otp_order
-            FROM
-            (SELECT tr.term_taxonomy_id, MIN(tr.otp_order) as first
-            FROM `wp_term_relationships` tr 
-            GROUP BY tr.term_taxonomy_id
-            ) as leaders
-            INNER JOIN `wp_term_relationships` tr ON leaders.term_taxonomy_id = tr.term_taxonomy_id AND leaders.first = tr.otp_order
-            GROUP BY term_taxonomy_id, otp_order
-            ) as pivot
-            INNER JOIN wp_term_taxonomy AS tt ON pivot.term_taxonomy_id = tt.term_taxonomy_id
-            INNER JOIN wp_terms AS t ON t.term_id = tt.term_id
-            INNER JOIN wp_posts pp ON pp.ID = pivot.object_id
-            WHERE tt.taxonomy = '$taxleader'
-             "; 
-
-         $totalposts = $wpdb->get_var($total); 
          $ppp = intval(get_query_var('posts_per_page'));
          $wp_query->found_posts = $totalposts;
          $wp_query->max_num_pages = ceil($wp_query->found_posts / $ppp);
          $on_page = intval(get_query_var('paged'));
          if($on_page == 0){ $on_page = 1; }
          $offset = ($on_page-1) * $ppp;
-
-         return self::otp_get_leaders_svc($taxleader, $offset, $ppp);
-
+         
+         
+         return self::otp_get_leaders_svc($taxleader, $startrow, $numrows);
+         
     }
 
     public static function otp_get_leaders_svc($taxleader, $startrow, $numrows){
-        global $wp_query, $wpdb;
+        global $wp_query;
 
-        $wp_query->request = "
-                SELECT pp.*, tt.term_taxonomy_id, tt.taxonomy, t.term_id, t.name as term_name, t.slug
-            FROM
-            (
-            SELECT MIN(tr.object_id) AS object_id,  leaders.term_taxonomy_id, tr.otp_order
-            FROM
-            (SELECT tr.term_taxonomy_id, MIN(tr.otp_order) as first
-            FROM `wp_term_relationships` tr 
-            GROUP BY tr.term_taxonomy_id
-            ) as leaders
-            INNER JOIN `wp_term_relationships` tr ON leaders.term_taxonomy_id = tr.term_taxonomy_id AND leaders.first = tr.otp_order
-            GROUP BY term_taxonomy_id, otp_order
-            ) as pivot
-            INNER JOIN wp_term_taxonomy AS tt ON pivot.term_taxonomy_id = tt.term_taxonomy_id
-            INNER JOIN wp_terms AS t ON t.term_id = tt.term_id
-            INNER JOIN wp_posts pp ON pp.ID = pivot.object_id
-            WHERE tt.taxonomy = '$taxleader'
-            ORDER BY pp.post_title
-            LIMIT $startrow , $numrows
-         ";
-
-        $sql_result = $wpdb->get_results($wp_query->request, OBJECT);
+        $sql_result = Btz_Otp_Queries::get_otp_leaders($wp_query, $taxleader, $startrow, $numrows);
         $result = array('slug' => $taxleader, 'data' => $sql_result);
-
         wp_reset_query();
-
         return $result;
+
+         
     }
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * redirect template
+ *  AREA LEADERS ( SU PAGE )
  */
 add_action( 'template_redirect', 'leader_template_redirect' );
 function leader_template_redirect() {
@@ -83,5 +83,63 @@ function the_debug_state(){
     
 }
 
+/*
+ *  AREA NAVIGATION ( SU SINGLE )
+ */
+function btz_otp_navigation($container='nav', $class='nav-single'){
+    
+    global $post;
+    
+    // verifica esistenza classe BTZ_Otp_Options
+    if( !class_exists( 'BTZ_Otp_Options' ) )
+        return false;
+    
+    
+    // verifica esistenza classe BTZ_Otp_Options
+    if( !class_exists( 'BTZ_Otp_Queries' ) )
+        return false;
+    
+    $sql_result = Btz_Otp_Queries::get_otp_navigation_from_post_id($post->ID);
+  //  error_log(print_r($sql_result, true));
+    $tax_excluded = array();
+    $options = get_option(BTZ_Otp_Options::OPTIONS_OTP_EXCLUDE);
+    if (!empty($options)) {
+        $tax_excluded = explode(',', $options);
+    }
+    
+    
+    $infinite_nav = get_option(OPTION_OTP_NAV_INFINITE);
+    
+    $result = array();
+    foreach($sql_result as $row){
+        if(in_array($row->taxonomy, $tax_excluded))
+            continue;
+    
+        if($infinite_nav){
+           error_log(print_r('sti cazze', true));
+            if(empty($row->otp_prev)){
+                $last = Btz_Otp_Queries::get_otp_trailers_from_tt_id($row->term_taxonomy_id);
+                if($last){
+                    $row->otp_prev = $last->ID;
+                    $row->guid_prev = $last->guid;
+                    $row->title_prev = $last->post_title;
+                }
+            }
+
+            if(empty($row->otp_next)){
+                $first = Btz_Otp_Queries::get_otp_leaders_from_tt_id($row->term_taxonomy_id);
+                if($first){
+                    $row->otp_next = $first->ID;
+                    $row->guid_next = $first->guid;
+                    $row->title_next = $first->post_title;
+                }
+            }
+        }
+        array_push($result, $row);
+    }
+    
+    return $result;
+    
+}
 
 ?>

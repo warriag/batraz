@@ -77,18 +77,6 @@ footer div.site-info{
 }
 
 
-.site-content article{
-/*    background-color: #fff;*/
-}
-
-header.entry-header .entry-title{
-/*    color: rgb(120, 66, 66);
-    font-size: 35px;
-    background-color: rgb(241, 237, 240);*/
-    padding-left:14px;
-/*    text-shadow: 2px 1px 2px #030303;*/
-}
-
 .widget-area .widget li { 
         margin: 8px 0 0;
 	margin: 0.571428571rem 0 0;
@@ -225,10 +213,18 @@ header.entry-header .entry-title{
 -----------------------------------------------------------------------------*/
 
 .leaders-prev span, .flickr-sets-prev span , .flickr-photos-prev span{
-    background: url('images/previous-black.png') no-repeat;;
+    background: url('images/previous-white.png') no-repeat;;
 }
 
 .leaders-next span, .flickr-sets-next span , .flickr-photos-next span {
+    background: url('images/next-white.png') no-repeat;;
+}
+
+nav.nav-single-otp .nav-single-otp-prev a span{
+    background: url('images/previous-black.png') no-repeat;;
+}
+
+nav.nav-single-otp .nav-single-otp-next a span{
     background: url('images/next-black.png') no-repeat;;
 }
 

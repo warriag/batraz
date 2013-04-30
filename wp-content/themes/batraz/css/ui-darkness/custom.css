@@ -436,6 +436,14 @@ a.comment-reply-link, .edit-link  a{
     background: url('images/next-white.png') no-repeat;;
 }
 
+nav.nav-single-otp .nav-single-otp-prev a span{
+    background: url('images/previous-white.png') no-repeat;;
+}
+
+nav.nav-single-otp .nav-single-otp-next a span{
+    background: url('images/next-white.png') no-repeat;;
+}
+
 /*---------------------------------------------------------------------------
         FLICKR
 -----------------------------------------------------------------------------*/

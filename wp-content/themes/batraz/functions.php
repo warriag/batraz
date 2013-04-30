@@ -6,14 +6,14 @@
  * 
  * vengono eseguite prima delle functions di Twenty Twelve
  */
-require_once(STYLESHEETPATH . '/library/constants.php');
-require_once(STYLESHEETPATH . '/library/class-options-helper.php');
-require_once(STYLESHEETPATH . '/library/class-leaders-helper.php');
+require_once(STYLESHEETPATH . '/classes/constants.php');
+require_once(STYLESHEETPATH . '/classes/class-options-helper.php');
+require_once(STYLESHEETPATH . '/classes/class-leaders-helper.php');
 
-include(STYLESHEETPATH . '/functions-plugged.php');
-include(STYLESHEETPATH . '/functions-leaders.php');
-include(STYLESHEETPATH . '/functions-cross.php');
-include(STYLESHEETPATH . '/scripts.php');
+include(STYLESHEETPATH . '/functions/functions-plugged.php');
+include(STYLESHEETPATH . '/functions/functions-otp.php');
+include(STYLESHEETPATH . '/functions/functions-cross.php');
+include(STYLESHEETPATH . '/scripts/scripts.php');
 
 
 
@@ -76,6 +76,10 @@ function adding_elements_options_func($optObj) {
        
         array('name' => OPTION_COLOR_STYLE, 'type' => 'select', 'values' => $styles,
             'label' => 'Color-Style Tema', 'class' => 'select-color-style'),
+        array('name' => OPTION_LEADERS_PPP, 'type' => 'text', 'label' => 'Numero leaders', 'tab' => 'Opzioni Otp'),
+        array('name' => OPTION_LEADERS_SPEED, 'type' => 'text', 'label' => 'Speed leaders', 'tab' => 'Opzioni Otp'),
+        array('name' => OPTION_OTP_NAV_INFINITE, 'type' => 'checkbox', 'label' => 'Navigazione infinita su post', 'tab' => 'Opzioni Otp'),
+        array('name' => OPTION_TAXONOMIES_HIDE, 'type' => 'checkbox', 'label' => 'Nascondi tassonomie sul post', 'tab' => 'Opzioni Tassonomie'),
        
     );
 
@@ -89,13 +93,7 @@ function adding_elements_options_func($optObj) {
             'label' => $label, 'class' => 'select-color-style');
     }
 
-    // tab leaders
-    $elements[] =  array('name' => OPTION_LEADERS_PPP, 'type' => 'text', 'label' => 'Numero leaders', 'tab' => 'Opzioni Leaders');
-    $elements[] =  array('name' => OPTION_LEADERS_SPEED, 'type' => 'text', 'label' => 'Speed leaders', 'tab' => 'Opzioni Leaders');
-    
-    // tab taxonomies
-    $elements[] =  array('name' => OPTION_TAXONOMIES_HIDE, 'type' => 'checkbox', 'label' => 'Nascondi tassonomie sul post', 'tab' => 'Opzioni Tassonomie');
-    
+ 
     return $elements;
 }
 
@@ -103,8 +101,8 @@ function adding_elements_options_func($optObj) {
  * batraz thumbnail left index
  */
 
-function get_batraz_item_thumbnail($class='') {
-    return BTZ_Options_Helper::get_thumbnail_indicator($class);
+function get_batraz_item_thumbnail($postId, $class='') {
+    return BTZ_Options_Helper::get_thumbnail_indicator($postId, $class);
 
 }
 

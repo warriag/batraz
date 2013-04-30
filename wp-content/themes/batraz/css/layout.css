@@ -219,7 +219,7 @@ footer div.site-info p.annotation{
     z-index: 8010;
 }
 
-.leaders-nav span, .flickr-sets-nav span,  .flickr-photos-nav span {
+.leaders-nav span, .flickr-sets-nav span,  .flickr-photos-nav span, nav.nav-single-otp span {
      position: absolute;
      width: 32px;
      height: 64px;
@@ -300,4 +300,83 @@ footer div.site-info p.annotation{
 
 .flickr-photos .imageContainer span{
     display: block;
+}
+
+/*---------------------------------------------------------------------------
+        OTP NAV
+-----------------------------------------------------------------------------*/
+nav.nav-single-otp{
+    position: relative;
+    min-height: 140px;
+    min-height: 10rem;
+    margin:14px 0 14px 0;
+    padding-top:14px;
+/*    border:1px solid #000;*/
+}
+
+nav.nav-single-otp div{
+    display: inline-block;
+    position: absolute;
+}
+
+
+nav.nav-single-otp .nav-single-otp-prev{
+    left : 0;
+    
+}
+
+nav.nav-single-otp .nav-single-otp-next{
+    right : 10px;
+    
+}
+
+
+nav.nav-single-otp .nav-single-otp-prev a span {
+/*     position: absolute;*/
+     width: 32px;
+     height: 64px;
+     margin-top: -32px;
+     margin-left: -24px;
+     z-index: 8010;
+     top: 50%;
+     
+}
+
+nav.nav-single-otp .nav-single-otp-next a span {
+/*     position: absolute;*/
+     width: 32px;
+     height: 64px;
+     margin-top: -32px;
+/*     margin-right: 20px;*/
+     z-index: 8010;
+     top: 50%;
+     
+}
+
+nav.nav-single-otp .nav-single-otp-prev a img {
+     margin-left:10px;
+}
+
+.cross-post {
+	border-bottom: 4px double #ededed;
+	margin-bottom: 72px;
+	margin-bottom: 5.142857143rem;
+	padding-bottom: 24px;
+	padding-bottom: 1.714285714rem;
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+
+.cross-post-list > div:first-child {
+	border-top: 4px double #ededed;
+	margin-top: 72px;
+	margin-top: 5.142857143rem;
+	padding-top: 24px;
+	padding-top: 1.714285714rem;
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
 }
