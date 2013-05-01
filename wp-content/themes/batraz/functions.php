@@ -97,6 +97,14 @@ function adding_elements_options_func($optObj) {
     return $elements;
 }
 
+// get batraz sub theme per personalizzare i templates header sidebar etc..
+function get_current_sub_theme(){
+    global $btz_sub_theme;
+    if(!isset($btz_sub_theme))$btz_sub_theme = NULL;
+    error_log(print_r($btz_sub_theme));
+    return $btz_sub_theme;
+}
+
 /*
  * batraz thumbnail left index
  */

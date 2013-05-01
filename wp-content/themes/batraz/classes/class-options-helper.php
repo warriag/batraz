@@ -330,31 +330,31 @@ class BTZ_Options_Helper {
      *  set styles dalle opzioni del tema
      */
     function add_custom_style_sheet() {
-	global $wp_styles;
+	global $wp_styles, $btz_sub_theme;
         
         
-        $subcss = get_option(OPTION_COLOR_STYLE);
-	if(!empty($this->single_style) && $subcss != $this->single_style){
-             $subcss = $this->single_style;
+        $btz_sub_theme = get_option(OPTION_COLOR_STYLE);
+	if(!empty($this->single_style) && $btz_sub_theme != $this->single_style){
+             $btz_sub_theme = $this->single_style;
         }
        
         if(wp_style_is('jquery-ui-standard-css')){
-           // if(substr(strtolower($subcss), 0, 3) != 'btz'){
-            if(in_array($subcss, $this->jquery_ui_themes)){    
-                $wp_styles->registered['jquery-ui-standard-css']->src = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/'.$subcss.'/jquery-ui.css';
-            }elseif(file_exists( STYLESHEETPATH . '/css/' . $subcss . '/jquery-custom.min.css')){
-                $wp_styles->registered['jquery-ui-standard-css']->src = get_stylesheet_directory_uri() . '/css/' . $subcss . '/jquery-custom.min.css';
+           // if(substr(strtolower($btz_sub_theme), 0, 3) != 'btz'){
+            if(in_array($btz_sub_theme, $this->jquery_ui_themes)){    
+                $wp_styles->registered['jquery-ui-standard-css']->src = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/'.$btz_sub_theme.'/jquery-ui.css';
+            }elseif(file_exists( STYLESHEETPATH . '/css/' . $btz_sub_theme . '/jquery-custom.min.css')){
+                $wp_styles->registered['jquery-ui-standard-css']->src = get_stylesheet_directory_uri() . '/css/' . $btz_sub_theme . '/jquery-custom.min.css';
             }else{
                 $wp_styles->registered['jquery-ui-standard-css']->src = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/jquery-ui.css';
             }
             
         }
         
-        wp_enqueue_style( 'child-custom-' . $subcss, get_stylesheet_directory_uri() . '/css/' . $subcss . '/custom.css', array(), '1.0' );
-        $wp_styles->add_data( 'child-custom-' . $subcss , 'title', __( $subcss, 'child-theme-textdomain' ) );
+        wp_enqueue_style( 'child-custom-' . $btz_sub_theme, get_stylesheet_directory_uri() . '/css/' . $btz_sub_theme . '/custom.css', array(), '1.0' );
+        $wp_styles->add_data( 'child-custom-' . $btz_sub_theme , 'title', __( $btz_sub_theme, 'child-theme-textdomain' ) );
 
-        if(isset ( $this->mSBthemes[$subcss])){
-            $GLOBALS['mSBtheme'] =  $this->mSBthemes[$subcss];
+        if(isset ( $this->mSBthemes[$btz_sub_theme])){
+            $GLOBALS['mSBtheme'] =  $this->mSBthemes[$btz_sub_theme];
         }else{
             $GLOBALS['mSBtheme'] =  'light';
         }
