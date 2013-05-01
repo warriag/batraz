@@ -195,14 +195,21 @@ footer div.site-info p.annotation{
     margin-right: auto;
 }
 
+.header-leaders span{
+    line-height: 20px;
+    line-height: 1.428571rem;
+}
+
 .leaders-list{
     margin-bottom: 14px !important;
 }
 
 .content-leaders, .flickr-sets, .flickr-photos{
     position: relative;
-    margin:0 10px;
-    margin :0 0.714285714rem;
+/*    margin:0 10px;
+    margin :0 0.714285714rem;*/
+     margin: 0 14px;
+     margin :0 1rem;
     max-width:99%; 
 
 }
@@ -257,6 +264,11 @@ footer div.site-info p.annotation{
     margin:0 1.42857rem;
 }
 
+.content-leaders .content-leaders-wrapper a{
+    text-decoration: none;
+    padding-top:7px;
+    display: block;
+}
 
 
 /*---------------------------------------------------------------------------
@@ -371,7 +383,7 @@ nav.nav-single-otp .nav-single-otp-prev a img {
         CROSS POST
 -----------------------------------------------------------------------------*/
 .cross-post {
-	border-bottom: 4px double #ededed;
+	border-bottom: 4px double;
 	margin-bottom: 72px;
 	margin-bottom: 5.142857143rem;
 	padding-bottom: 24px;
@@ -383,7 +395,7 @@ nav.nav-single-otp .nav-single-otp-prev a img {
 }
 
 .cross-post-list > div:first-child {
-	border-top: 4px double #ededed;
+	border-top: 4px double;
 	margin-top: 72px;
 	margin-top: 5.142857143rem;
 	padding-top: 24px;

@@ -37,7 +37,7 @@ class BTZ_Leaders_Helper {
                   foreach ($result_query['data'] as $post){
                       setup_postdata($post);
                       $result[] = array('permalink' => get_permalink(),
-                                        'title' => esc_attr(the_title_attribute( 'echo=0' ) )  ,    
+                                        'title' => $post->post_title, 
                                         'thumb' => BTZ_Options_Helper::get_thumbnail_indicator(get_the_ID()),
                                         'term_link' => get_term_link( $post->slug, $slug ),
                                         'term_name' => $post->term_name,

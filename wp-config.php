@@ -94,7 +94,7 @@ define('WP_DEBUG_DISPLAY', false);
 @ini_set('display_errors', 0);
 @ini_set('log_errors', 0);
 
-
+define('BTZ_DEBUG', true);
 
 
 /* Finito, interrompere le modifiche! Buon blogging. */

@@ -76,10 +76,10 @@ function adding_elements_options_func($optObj) {
        
         array('name' => OPTION_COLOR_STYLE, 'type' => 'select', 'values' => $styles,
             'label' => 'Color-Style Tema', 'class' => 'select-color-style'),
-        array('name' => OPTION_LEADERS_PPP, 'type' => 'text', 'label' => 'Numero leaders', 'tab' => 'Opzioni Otp'),
-        array('name' => OPTION_LEADERS_SPEED, 'type' => 'text', 'label' => 'Speed leaders', 'tab' => 'Opzioni Otp'),
-        array('name' => OPTION_OTP_NAV_INFINITE, 'type' => 'checkbox', 'label' => 'Navigazione infinita su post', 'tab' => 'Opzioni Otp'),
-        array('name' => OPTION_TAXONOMIES_HIDE, 'type' => 'checkbox', 'label' => 'Nascondi tassonomie sul post', 'tab' => 'Opzioni Tassonomie'),
+        array('name' => OPTION_LEADERS_PPP, 'type' => 'text', 'label' => 'Numero leaders OTP', 'tab' => 'Singolo Post'),
+        array('name' => OPTION_LEADERS_SPEED, 'type' => 'text', 'label' => 'Speed leaders OTP', 'tab' => 'Singolo Post'),
+        array('name' => OPTION_OTP_NAV_INFINITE, 'type' => 'checkbox', 'label' => 'Navigazione infinita OTP', 'tab' => 'Singolo Post'),
+        array('name' => OPTION_TAXONOMIES_HIDE, 'type' => 'checkbox', 'label' => 'Nascondi tassonomie sul post', 'tab' => 'Singolo Post'),
        
     );
 

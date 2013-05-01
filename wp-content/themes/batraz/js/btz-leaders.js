@@ -42,7 +42,6 @@
                
                 start += speed;
                 start = (start % lenLinks);
-
                
                 wrapper.empty();
                 fillContainer();
@@ -56,8 +55,6 @@
                     start += lenLinks;
                 }
                 start = (start % lenLinks);
-
-               
                 wrapper.empty();
                 fillContainer();
                 
@@ -69,13 +66,9 @@
                 var block =  $('<p />'),
                 link = $('<a />').attr({'href' : data['permalink'], 'title' : data['title']}).appendTo(block);
                 link.html(data['thumb']);
-                $('<br>').appendTo(block);
                 var term = $('<a />').attr({'href' : data['term_link'], 'title' : data['term_name']}).appendTo(block);
                 
-                // counter++; 
                 var termName = (options.debug) ? data['term_name'] + '(' + ++counter + ')' : data['term_name'] ;
-               
-                
                 term.text(termName);
                 links.push(block);
                 

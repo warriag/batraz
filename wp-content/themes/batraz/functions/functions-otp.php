@@ -74,7 +74,11 @@ function the_leaders_speed_option(){
 }
 
 function get_debug_state(){
-    return (WP_DEBUG) ? 1 : 0;
+    if(defined(BTZ_DEBUG)){
+        return (BTZ_DEBUG) ? 1 : 0;
+    }else{
+        return 0;
+    }
     
 }
  
@@ -117,7 +121,7 @@ function btz_otp_navigation($container='nav', $class='nav-single'){
             continue;
     
         if($infinite_nav){
-           error_log(print_r('sti cazze', true));
+          
             if(empty($row->otp_prev)){
                 $last = Btz_Otp_Repository::get_otp_trailers_from_tt_id($row->term_taxonomy_id);
                 if($last){
