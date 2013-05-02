@@ -14,8 +14,8 @@
 add_action('admin_enqueue_scripts', 'batraz_script_load');
 
 function batraz_script_load($hook) {
-    //  error_log(print_r($hook, true)); 
-    if ($hook != 'plugins_page_otp-setting' && $hook != 'post.php') {
+
+    if (!in_array($hook, array('plugins_page_otp-setting', 'post.php', 'post-new.php'))) {
         return;
     }
     wp_enqueue_script('jquery');
