@@ -28,41 +28,33 @@ header.site-header hgroup{
 }
 
 
-
-
-
-header.item-right h1{
-    margin:0 0 0 135px;
-    margin:0 0 0 9.642857143rem;
-    clear: none;
-/*    border:1px solid black;*/
-}
-div.item-right{
-/*    border:1px solid black;*/
-    margin:0 0 0 135px;
-    margin:0 0 0 9.642857143;
+/*---------------------------------------------------------------------------
+        ARTICLE ITEM LIST (see ITEM_CONTENT TEMPLATE )
+-----------------------------------------------------------------------------*/
+article.item-right{
+     min-height: 100px;
+     min-height: 7.1428571rem;
+     margin-bottom: 28px;
+     margin-bottom: 2rem;
 }
 
-img.floatleft , div.floatleft {
-    border: 0 none;
-    float: left;
+article.item-right a{
+     display: inline-block;
 }
 
-.site-content article {
-    min-height: 100px;
-    min-height: 7.142857rem;
+article.item-right > div{
+     display: inline-block;
+     max-width: 70%;    
+     vertical-align: top;
+     margin-left: 14px;
+     margin-left: 1rem;
 }
 
-/*
-* elemento footer
-*/
+
+/*---------------------------------------------------------------------------
+        FOOTER
+-----------------------------------------------------------------------------*/
 footer[role="contentinfo"]{
-/*    position: fixed;
-    bottom:0;
-    width: 1040px;
-    width: 74.285714285rem;*/
-    
-    
     margin: 0 auto;
     max-width: 1040px;
     max-width: 74.285714285rem;
@@ -92,10 +84,7 @@ footer div.site-info p.annotation{
     float:right;
 }
 
-/* articoli */
-.site-content article{
-   /* padding: 14px; */
-}
+
 
 /* elementi widgets */
 .widget-title{
@@ -392,6 +381,10 @@ nav.nav-single-otp .nav-single-otp-prev a img {
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
 	hyphens: auto;
+        min-height: 100px;
+        min-height: 7.1428571rem;
+        margin-bottom: 28px;
+        margin-bottom: 2rem;
 }
 
 .cross-post-list > div:first-child {
@@ -405,6 +398,22 @@ nav.nav-single-otp .nav-single-otp-prev a img {
 	-moz-hyphens: auto;
 	hyphens: auto;
 }
+
+
+
+
+.cross-post a{
+     display: inline-block;
+}
+
+.cross-post > div{
+     display: inline-block;
+     max-width: 70%;    
+     vertical-align: top;
+     margin-left: 14px;
+     margin-left: 1rem;
+}
+
 
 /*---------------------------------------------------------------------------
         TABLE IN ENTRY CONTENT
