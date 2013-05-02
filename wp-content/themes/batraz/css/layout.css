@@ -405,3 +405,21 @@ nav.nav-single-otp .nav-single-otp-prev a img {
 	-moz-hyphens: auto;
 	hyphens: auto;
 }
+
+/*---------------------------------------------------------------------------
+        TABLE IN ENTRY CONTENT
+-----------------------------------------------------------------------------*/
+.entry-content table{
+    border: 1px solid;
+    border-color: #000000;
+    border-collapse: separate;
+}
+
+.entry-content td{
+    border: 1px solid;
+    border-color: #000000;
+}
+
+.entry-content td p{
+    margin: auto;
+}
