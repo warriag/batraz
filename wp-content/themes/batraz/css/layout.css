@@ -23,8 +23,9 @@ header.site-header{
 header.site-header hgroup{
     max-width: 960px;
     max-width: 68.571428571rem;
-    padding:24px 40px 0 40px;
-    padding:1.714285714rem 2.857142857rem 0 2.857142857rem;
+    margin:0;
+    padding:14px 40px 0 40px;
+    padding:1.0rem 2.857142857rem 0 2.857142857rem;
 }
 
 
