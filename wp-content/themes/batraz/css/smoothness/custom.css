@@ -95,7 +95,7 @@ ul#nav-menu-top ul a {
 /*----------------------------------------------------------------------------
             MENU CATEGRIE
 -----------------------------------------------------------------------------*/
-ul#menu-categorie {
+/*ul#menu-categorie {
   box-shadow: 2px 2px 3px #666666;
   -webkit-box-shadow: 2px 2px 3px #666666;
   -moz-box-shadow: 2px 2px 3px #666666;
@@ -143,13 +143,32 @@ ul#menu-categorie ul {
 ul#menu-categorie ul a {
   color:#424242 !important;
   text-shadow: 2px 2px 3px #FFFFFF;
+}*/
+
+
+/*------------------------------------------------
+        MENU CATEGORIE ALTERNATIVE
+----------------------------------------------- */
+
+.main-navigation div.menu-primo-container > ul {
+    border-color: #222222;
+    box-shadow: 2px 2px 3px #666666;
+  -webkit-box-shadow: 2px 2px 3px #666666;
+  -moz-box-shadow: 2px 2px 3px #666666;
+}
+
+.main-navigation a:hover {
+    color: #ef1818 !important;
+}
+.main-navigation li ul li a {
+    background: #ddd !important;
+    border-color: #222;
+}
+.main-navigation li a {
+    color: #111 !important;
 }
 
 
-/*.main-navigation div.nav-menu {
-    background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") left top repeat-x;
-   
-}*/
 
 
 .widget-title, .widget-title h3{
@@ -207,4 +226,32 @@ nav.nav-single-otp .nav-single-otp-next a span{
 
 .content-leaders-wrapper{
     background: transparent url(images/slideshow3-bg.png) top left no-repeat;
+    text-shadow: 2px 2px 3px #aaaaaa;
+}
+
+.content-leaders-wrapper a img {
+
+    padding:8px;
+    border:solid;
+    border-color: #dddddd #aaaaaa #aaaaaa #dddddd;
+    border-width: 1px 2px 2px 1px;
+    background-color:white;
+ }
+
+/*---------------------------------------------------------------------------
+        FLICKR
+-----------------------------------------------------------------------------*/
+.flickr-sets .flickr-sets-wrapper .Sets .SetCase{
+    padding-top:7px;
+    width: 91px;
+    height: 95px;
+    background: url(images/set_case.gif) no-repeat;
+}
+
+.content-leaders-wrapper img{  
+padding:8px;
+ border:solid;
+ border-color: #dddddd #aaaaaa #aaaaaa #dddddd;
+ border-width: 1px 2px 2px 1px;
+ background-color:white;
 }
