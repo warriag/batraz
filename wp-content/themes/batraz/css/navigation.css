@@ -218,6 +218,8 @@ ul#menu-categorie ul li:last-child > a {
   -webkit-border-bottom-right-radius: 10px;
   -moz-border-radius-bottomright: 10px;
 }
+
+
 ul#menu-categorie:after {
   content: ".";
   display: block;
@@ -236,4 +238,26 @@ ul#menu-categorie {
   height: 1%;
 }
 
+/*-----------------------------------------------------------------------
+    EXPERIMENTAL FLOAT FIX
+-----------------------------------------------------------------------*/
+.btz-floatfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+/*.btz-floatfix {
+  display: inline-block;
+}*/
+
+/*
+  html[xmlns] .btz-floatfix {
+  display: block;
+}
+* html .btz-floatfix {
+  height: 1%;
+}*/
 

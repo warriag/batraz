@@ -10,9 +10,6 @@ class BTZ_Otp_Options {
     const LEADER_META_REDIRECT_KEY = 'btz_leader_redirect_key';
     const REDIRECT_NAME_FIELD = 'btz_tax_leader_redirect';
     
-    const LEADER_META_SHOW_DESC_KEY = 'btz_leader_show_desc_key';
-    const SHOW_DESC_NAME_FIELD = 'btz_tax_leader_show_desc';
-    
     const META_FIELD_LEADER_COLUMN = 'btz_leader_meta_column';
     const NONCE = 'btz_otp_noncename';
     const NULL_LEADER = '0';
@@ -292,8 +289,7 @@ class BTZ_Otp_Options {
         $taxonomies_slugs = $this->get_taxonomies_slugs();
         
         $redirect = get_post_meta( $post->ID, self::LEADER_META_REDIRECT_KEY, true );
-        
-        $show_desc = get_post_meta( $post->ID, self::LEADER_META_SHOW_DESC_KEY, true );
+       
        
         ?>  
             <table class=""widefat">
@@ -311,12 +307,6 @@ class BTZ_Otp_Options {
                     <td> 
                         <label for="tax_leader_redirect">&nbsp;&nbsp;Redirect : &nbsp;
                             <input type="checkbox" name="<?php echo self::REDIRECT_NAME_FIELD; ?>" id="<?php echo self::REDIRECT_NAME_FIELD; ?>"  value="1" <?php checked('1', $redirect); ?> />
-                        </label>  
-
-                    </td>
-                    <td> 
-                        <label for="tax_leader_show_desc">&nbsp;&nbsp;Mostra descrizione : &nbsp;
-                            <input type="checkbox" name="<?php echo self::SHOW_DESC_NAME_FIELD; ?>" id="<?php echo self::SHOW_DESC_NAME_FIELD; ?>"  value="1" <?php checked('1', $show_desc); ?> />
                         </label>  
 
                     </td>
@@ -380,12 +370,7 @@ class BTZ_Otp_Options {
         }else{
             delete_post_meta($post_id, self::LEADER_META_REDIRECT_KEY); 
         }
-        
-        if(isset($_POST[self::SHOW_DESC_NAME_FIELD])){
-            update_post_meta( $post_id, self::LEADER_META_SHOW_DESC_KEY, $_POST[self::SHOW_DESC_NAME_FIELD] );
-        }else{
-            delete_post_meta($post_id, self::LEADER_META_SHOW_DESC_KEY); 
-        }
+       
     }
     
     function taxonomy_busy($taxonomy, $post_id = false){

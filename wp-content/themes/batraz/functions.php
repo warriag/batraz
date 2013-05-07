@@ -58,6 +58,8 @@ function adding_elements_options_func($optObj) {
             'label' => 'Color-Style Tema', 'class' => 'select-color-style'),
         array('name' => OPTION_LEADERS_PPP, 'type' => 'text', 'label' => 'Numero leaders OTP', 'tab' => 'Page'),
         array('name' => OPTION_LEADERS_SPEED, 'type' => 'text', 'label' => 'Speed leaders OTP', 'tab' => 'Page'),
+        array('name' => OPTION_LEADERS_DESCR_SLIDE, 'type' => 'checkbox', 'label' => 'Scorrimento descrizione leaaders', 'tab' => 'Page'),
+        array('name' => OPTION_LEADERS_BOUNCE, 'type' => 'checkbox', 'label' => 'Effetto bounce su caricamento leaaders', 'tab' => 'Page'),
         array('name' => OPTION_OTP_NAV_INFINITE, 'type' => 'checkbox', 'label' => 'Navigazione infinita OTP', 'tab' => 'Post'),
         array('name' => OPTION_TAXONOMIES_HIDE, 'type' => 'checkbox', 'label' => 'Nascondi tassonomie sul post', 'tab' => 'Post'),
        

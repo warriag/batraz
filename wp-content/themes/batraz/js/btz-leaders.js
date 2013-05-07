@@ -9,6 +9,7 @@
             },
             ppp : 5, 
             speed : 1,
+            bouncing : false,
             debug : false       
         }
         options = $.extend(defaults, options);
@@ -81,6 +82,17 @@
                 }
             }
             
+            var time = 500;
+            function runBounce(){
+                $('p', wrapper).each(function() {                 
+                   var $this  = $(this);
+                   function delayed() {
+                        $this.effect('bounce', {distance : 16});
+                    }
+                   setTimeout( delayed , time );
+                   time += 500;
+                });
+            }
             
             var spinner = $('.' +Batraz.container_spinner_loading_class);
             if(spinner.length == 0){
@@ -114,6 +126,7 @@
                         });
                         lenLinks = links.length;
                         fillContainer();
+                        if(options.bouncing)runBounce();
                     }
                  }, 'json')
                  

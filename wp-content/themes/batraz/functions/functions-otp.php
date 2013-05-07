@@ -47,9 +47,9 @@ function leader_header_ajax_setting(){
     $taxleader = get_post_meta( $post->ID, BTZ_Otp_Options::LEADER_META_FIELD_KEY, true );
     if(!$taxleader)return false;
     
-    $show_desc = get_post_meta( $post->ID, BTZ_Otp_Options::LEADER_META_SHOW_DESC_KEY, true );
+  //  $show_desc = get_post_meta( $post->ID, BTZ_Otp_Options::LEADER_META_SHOW_DESC_KEY, true );
     
-    $result = array('slug' => $taxleader, 'show_desc' => (bool)$show_desc);
+    $result = array('slug' => $taxleader);
     return $result;
     
 }
@@ -73,6 +73,18 @@ function the_leaders_speed_option(){
     echo get_leaders_speed_option();
 }
 
+function get_leaders_slide_description(){
+    return get_option(OPTION_LEADERS_DESCR_SLIDE);
+}
+
+function get_leaders_bounce(){
+    return get_option(OPTION_LEADERS_BOUNCE);
+}
+
+function the_leaders_bounce(){
+    echo (get_leaders_bounce()) ? 1 : 0;
+}
+
 function get_debug_state(){
     if(defined(BTZ_DEBUG)){
         return (BTZ_DEBUG) ? 1 : 0;
@@ -81,11 +93,15 @@ function get_debug_state(){
     }
     
 }
+
+
  
 function the_debug_state(){
     echo get_debug_state();
     
 }
+
+
 
 /*
  *  AREA NAVIGATION ( SU SINGLE )

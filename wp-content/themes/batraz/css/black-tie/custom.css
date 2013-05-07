@@ -176,15 +176,15 @@ footer div.site-info{
 /*---------------------------------------------------------------------------
         SLIDE CONTENT LEADERS
 -----------------------------------------------------------------------------*/
-.content-leaders-wrapper.ui-widget-content, .leaders-list.ui-widget{
+.content-leaders.ui-widget-content, .leaders-list.ui-widget{
     background: #000;
-    color:#fff;
+    color:#fff !important;
 }
-.content-leaders-wrapper.ui-widget-content a {
-    color:#fff;
+.content-leaders.ui-widget-content a {
+    color:#fff !important;
 }
 
-.content-leaders-wrapper{
+.content-leaders{
     background: url(../../images/slideshow-bg.png) bottom left no-repeat;
     text-shadow: 2px 2px 3px #aaa;
     box-shadow: 2px 2px 3px #666666;
