@@ -244,7 +244,7 @@ footer .widget_search{
     z-index: 8010;
 }
 
-.leaders-nav span, .flickr-sets-nav span,  .flickr-photos-nav span, nav.nav-single-otp span {
+.leaders-nav span, .flickr-sets-nav span,  .flickr-photos-nav span {
      position: absolute;
      width: 32px;
      width: 2.285714rem;
@@ -355,58 +355,51 @@ nav.nav-single-otp > span{
      width: 100%;
      font: bold "Helvetica Neue", Sans-Serif;
      text-transform: uppercase;
-    
+     top:40%;
 }
-    
 
-nav.nav-single-otp div{
-    display: inline-block;
+nav.nav-single-otp .nav-single-otp-prev {
+    position:absolute;
+    left:0;
+    top:auto;
+}
+
+nav.nav-single-otp .nav-single-otp-next {
+    position:absolute;
+    right:0;
+    top:auto;
+}
+
+
+nav.nav-single-otp div a, nav.nav-single-otp div span{
+     position:absolute;
+     width: 32px;
+     width: 2.285714rem;
+     height: 64px;
+     height: 4.57142857rem;
+     z-index: 8010;
+     top:50%;
+
+}
+
+nav.nav-single-otp .nav-single-otp-prev a, nav.nav-single-otp .nav-single-otp-prev span{
+}
+
+nav.nav-single-otp .nav-single-otp-next a, nav.nav-single-otp .nav-single-otp-next span{
+    right:0;
+}
+
+nav.nav-single-otp .nav-single-otp-prev img{
     position: absolute;
+    left:36px;
+}
+
+nav.nav-single-otp .nav-single-otp-next img{
+    position: absolute;
+    right:36px;
 }
 
 
-nav.nav-single-otp .nav-single-otp-prev{
-    left : 0;
-    
-}
-
-nav.nav-single-otp .nav-single-otp-next{
-    right : 10px;
-    right : 0.71428571rem;
-    
-}
-
-
-nav.nav-single-otp .nav-single-otp-prev a span {
-     width: 32px;
-     width: 2.285714rem;
-     height: 64px;
-     height: 4.57142857rem;
-     margin-top: -32px;
-     margin-top: -2.285714rem;
-     margin-left: -24px;
-     margin-left: -1.71428571rem;
-     z-index: 8010;
-     top: 50%;
-     
-}
-
-nav.nav-single-otp .nav-single-otp-next a span {
-     width: 32px;
-     width: 2.285714rem;
-     height: 64px;
-     height: 4.57142857rem;
-     margin-top: -32px;
-     margin-top: -2.285714rem;
-     z-index: 8010;
-     top: 50%;
-     
-}
-
-nav.nav-single-otp .nav-single-otp-prev a img {
-     margin-left:10px;
-     margin-left:0.7142857rem;
-}
 
 /*---------------------------------------------------------------------------
         CROSS POST

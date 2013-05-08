@@ -18,25 +18,27 @@
     </nav><!-- .nav-single -->
 <?php else : ?> 
     <?php foreach ($array_nav as $nav) : ?>
-        <nav class="nav-single-otp ui-widget-content ui-corner-all" title="<?php echo $nav->name; ?>">
+        <nav class="nav-single-otp ui-widget-content ui-corner-all btz-floatfix" title="<?php echo $nav->name; ?>">
             <span><marquee  behavior="alternate" hspace="100" ><?php echo $nav->name; ?></marquee></span>
             <?php if($nav->otp_prev) : ?>
                 <div class="nav-single-otp-prev">
-
+                    
                     <a href="<?php echo $nav->guid_prev;  ?>"  >
-                        <span title="<?php echo $nav->title_prev;  ?>"></span> 
-                        <?php echo get_batraz_item_thumbnail($nav->otp_prev); ?>
+                       <span title="<?php echo $nav->title_prev;  ?>"></span> 
+                        
                     </a>
+                    <?php echo get_batraz_item_thumbnail($nav->otp_prev); ?>
                 </div>
             <?php endif; ?>
             
             <?php if($nav->otp_next) : ?>
                 <div class="nav-single-otp-next">
-
+                    <?php echo get_batraz_item_thumbnail($nav->otp_next); ?>    
                     <a href="<?php echo $nav->guid_next;  ?>"  >
-                        <?php echo get_batraz_item_thumbnail($nav->otp_next); ?>
-                         <span title="<?php echo $nav->title_next;  ?>"></span> 
+                        
+                        <span title="<?php echo $nav->title_next;  ?>"></span> 
                     </a>
+                     
                 </div>
             <?php endif; ?>
         </nav>

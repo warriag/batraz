@@ -301,6 +301,16 @@ ul#nav-menu-top ul a {
 }
 
 
+ /*---------------------------------------------------------------------------
+        OTP NAV
+-----------------------------------------------------------------------------*/
+nav.nav-single-otp{
+    background: transparent url(../../images/slideshow-bg.png) bottom left no-repeat;
+      box-shadow: 2px 2px 3px #666666;
+  -webkit-box-shadow: 2px 2px 3px #666666;
+  -moz-box-shadow: 2px 2px 3px #666666;
+}
+
 
 /*---------------------------------------------------------------------------
         FLICKR
@@ -312,13 +322,16 @@ ul#nav-menu-top ul a {
     background: url(../../images/set_case.gif) no-repeat;
 }
 
+
 /*---------------------------------------------------------------------------
         CROSS POST
 -----------------------------------------------------------------------------*/
 .cross-post {
-        border-color: #3d3d3d;
+        border-color: #404040;
+        border-color: rgba(64, 64,64, 0.4);
 }
 
 .cross-post-list > div:first-child {
-        border-color: #3d3d3d;
+        border-color: #404040;
+        border-color: rgba(64, 64,64, 0.4);
 }
